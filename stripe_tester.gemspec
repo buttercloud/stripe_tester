@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = StripeTester::VERSION
   spec.authors       = ["Buttercloud"]
   spec.email         = ["info@buttercloud.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Test Stripe webhooks locally}
+  spec.summary       = %q{Test Stripe webhooks locally}
   spec.homepage      = ""
   spec.license       = "MIT"
 
