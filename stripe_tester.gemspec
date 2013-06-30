@@ -6,8 +6,8 @@ require 'stripe_tester/version'
 Gem::Specification.new do |spec|
   spec.name          = "stripe_tester"
   spec.version       = StripeTester::VERSION
-  spec.authors       = ["Luay Bseiso"]
-  spec.email         = ["luay@buttercloud.com"]
+  spec.authors       = ["Buttercloud"]
+  spec.email         = ["info@buttercloud.com"]
   spec.description   = %q{TODO: Write a gem description}
   spec.summary       = %q{TODO: Write a gem summary}
   spec.homepage      = ""
