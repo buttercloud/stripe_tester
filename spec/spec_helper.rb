@@ -1,0 +1,1 @@
+require 'stripe_tester'
