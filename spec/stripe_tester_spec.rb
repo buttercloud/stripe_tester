@@ -20,6 +20,10 @@ describe StripeTester do
 			expect(returned_type).to eq(type)
 		end
 
+		pending "#load_template should raise exception when invalid event is given" do
+
+		end
+
 		it "#webhook_url should set the default url for the class" do
 			url = 'http://www.google.com'
 			StripeTester.webhook_url = url
@@ -40,6 +44,9 @@ describe StripeTester do
 		end
 
 		pending "#post_to_url should send data to url" do 
+		end
+
+		pending "#override_attributes should override attributes in default data to custom data" do
 		end
 	end
 end
