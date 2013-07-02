@@ -1,4 +1,7 @@
 require "stripe_tester/version"
+require 'uri'
+require 'net/http'
+require 'json'
 
 module StripeTester
 	# when done test me
@@ -14,7 +17,7 @@ module StripeTester
 		post_url = webhook_url
 
 		# set up request
-		req = Net::HTTP.Post.new(post_url.path)
+		req = Net::HTTP::Post.new(post_url.path)
 		req.content_type = 'application/json'
 		req.body = data.to_json
 
