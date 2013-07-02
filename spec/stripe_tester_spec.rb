@@ -25,7 +25,21 @@ describe StripeTester do
 			StripeTester.webhook_url = url
 
 			result_url = StripeTester.webhook_url
-			expect(result_url).to eq(url)
+			expect(result_url.to_s).to eq(url)
+		end
+
+		it "#webhook_url should store url as and URI object" do
+			url = 'http://www.google.com'
+			StripeTester.webhook_url = url
+
+			result_url = StripeTester.webhook_url
+			expect(result_url).to be_a_kind_of(URI)
+		end
+
+		pending "#webhook_url should raise exception when URL is invalid" do
+		end
+
+		pending "#post_to_url should send data to url" do 
 		end
 	end
 end
