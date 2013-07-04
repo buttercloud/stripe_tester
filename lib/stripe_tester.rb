@@ -56,7 +56,11 @@ module StripeTester
 
 	# load yaml with specified callback type
 	def self.load_template(callback_type)
-		template = Psych.load_file("./webhooks/#{callback_type}.yml")
+		begin
+			template = Psych.load_file("./webhooks/#{callback_type}.yml")
+		rescue StandardError => e
+			puts e
+		end
 	end
 
 	# save the url and a URI object
