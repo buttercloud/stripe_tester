@@ -20,8 +20,12 @@ describe StripeTester do
 			expect(returned_type).to eq(type)
 		end
 
-		pending "#load_template should raise exception when invalid event is given" do
+		it "#load_template should raise exception when invalid event is given" do
+			type = "incorrect_type"
 
+			returned_hash = StripeTester.load_template(type)
+
+			expect(returned_hash).to eq(nil)
 		end
 
 		it "#webhook_url should set the default url for the class" do
