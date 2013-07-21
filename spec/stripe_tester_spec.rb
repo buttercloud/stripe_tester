@@ -20,7 +20,7 @@ describe StripeTester do
 			expect(returned_type).to eq(type)
 		end
 
-		it "#load_template should raise exception when invalid event is given" do
+		it "#load_template should return nil  when invalid event is given" do
 			type = "incorrect_type"
 
 			returned_hash = StripeTester.load_template(type)
@@ -56,7 +56,7 @@ describe StripeTester do
 			
 		end
 
-		it "#override_attributes should override attributes in default data to custom data" do
+		pending "#override_attributes should override attributes in default data to custom data" do
 			original_data = {name: 'john smith', info: {age: 45, gender: 'male'}}
 			options = {name: 'smith john', age: 99}
 
@@ -64,6 +64,13 @@ describe StripeTester do
 
 			age = original_data[:info][:age]
 			expect(age).to eq(options[:age])
+		end
+
+		it "#find_value should find the value of any value in the hash" do
+			original_data = StripeTester.load_template(:invoice_created)
+
+			var = StripeTester.find_value(original_data, "url")
+			expect(var).to eq("/v1/invoices/in_27H6EmDDBU0Xza/lines")
 		end
 	end
 end

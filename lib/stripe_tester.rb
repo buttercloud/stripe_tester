@@ -5,17 +5,18 @@ require 'json'
 
 module StripeTester
 
-	# hack to find the value of the nested key (returns only the first one found)
-	def self.deep_fetch(hash, key, default = nil)
-   default = yield if block_given?
-   (deep_find(hash, key) or default) or raise KeyError.new("key not found: #{key}")
- 	end
-
- 	# TODO: check in array as well
- 	def self.deep_find(hash, key)
-		hash.key?(key) ? hash[key] : hash.values.inject(nil) do |memo, v|  
-			v = v.first if v.is_a?(Array) # convert array to hash if any
-			deep_find(v, key) if v.is_a?(Hash)
+  def self.find_value(hash, key)
+  	value = nil
+		if hash.key?(key)
+			value = hash[key]
+		else
+			hash.values.each do |v|
+				v = v.first if v.is_a?(Array)
+				if v.is_a?(Hash)	
+					value ||= find_value(v, key)
+				end
+			end
+			value
 		end
   end
 
