@@ -5,78 +5,89 @@ require 'json'
 
 module StripeTester
 
-  def self.find_value(hash, key)
-  	value = nil
-		if hash.key?(key)
-			value = hash[key]
-		else
-			hash.values.each do |v|
-				v = v.first if v.is_a?(Array)
-				if v.is_a?(Hash)	
-					value ||= find_value(v, key)
-				end
-			end
-			value
-		end
+  # when done test me
+  # run callback with options to customize the json
+  def self.create_event(callback_type, options={})
+    webhook_data = self.load_template(callback_type)
+    if webhook_data
+      webhook_data = override_attributes(webhook_data, options) unless options.empty?
+      post_to_url(webhook_data)
+      true
+    end
   end
 
-	# when done test me
-	# run callback with options to customize the json
-	def self.create_event(callback_type, options={})
-		webhook_data = self.load_template(callback_type)
-		
-		override_attributes(webhook_data, options) unless options.empty?
+  # replace multiple values for multiple keys in a hash
+  def self.override_attributes(original_data, options={})
+    data = original_data.clone
+    if options
+      options.each do |k,v|
+        replace_value(data, k, v)
+      end
+    end
+    data
+  end
 
-		post_to_url(webhook_data)
-	end
+  # replaces a value for a single key in a hash
+  def self.replace_value(hash, key, new_value)
+    if hash.key?(key)
+      hash[key] = new_value
+    else
+      hash.values.each do |value|
+        value = value.first if value.is_a?(Array)
+        replace_value(value, key, new_value) if value.is_a?(Hash)
+      end
+      hash
+    end
+  end
 
-	def self.override_attributes(original_data, new_data)
+  def self.post_to_url(data={})
+    post_url = webhook_url
 
-	end
+    if post_url
+      # set up request
+      req = Net::HTTP::Post.new(post_url.path)
+      req.content_type = 'application/json'
+      req.body = data.to_json
 
-	def self.post_to_url(data={})
-		post_url = webhook_url
+      # send request
+      res = Net::HTTP.start(post_url.hostname, post_url.port) do |http|
+        http.request(req)
+      end
 
-		# set up request
-		req = Net::HTTP::Post.new(post_url.path)
-		req.content_type = 'application/json'
-		req.body = data.to_json
+      case res
+      when Net::HTTPSuccess, Net::HTTPRedirection
+        # good
+      else
+        res.value
+      end
+    else
+      raise "Could not post to URL. Please set URL."
+    end
+  end
 
-		# send request
-		res = Net::HTTP.start(post_url.hostname, post_url.port) do |http|
-			http.request(req)
-		end
+  # load yaml with specified callback type
+  def self.load_template(callback_type)
+    path = "./webhooks/#{callback_type}.yml"
+    if File.exists?(path)
+      template = Psych.load_file(path)
+    else
+      raise "Webhook not found. Please use a correct webhook type"
+    end
+  end
 
-		case res
-		when Net::HTTPSuccess, Net::HTTPRedirection
-			# good
-		else
-			res.value
-		end
-	end
+  # save the url and a URI object
+  def self.webhook_url=(url)
+    if url =~ /^#{URI::regexp}$/
+      temp_url = URI.parse(url)
+      @url = temp_url
+    end
+  end
 
-	# load yaml with specified callback type
-	def self.load_template(callback_type)
-		begin
-			template = Psych.load_file("./webhooks/#{callback_type}.yml")
-		rescue StandardError => e
-			puts e
-		end
-	end
+  def self.webhook_url
+    @url
+  end
 
-	# save the url and a URI object
-	def self.webhook_url=(url)
-		if url =~ /^#{URI::regexp}$/
-			temp_url = URI.parse(url)
-			@url = temp_url
-		end
-	end
-
-	def self.webhook_url
-		@url
-	end
-
-	def self.remove_url
-		@url = nil
-	end
+  def self.remove_url
+    @url = nil
+  end
 end
