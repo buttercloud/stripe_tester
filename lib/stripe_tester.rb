@@ -10,14 +10,14 @@ module StripeTester
   def self.create_event(callback_type, options={})
     webhook_data = self.load_template(callback_type)
     if webhook_data
-      webhook_data = override_attributes(webhook_data, options) unless options.empty?
+      webhook_data = overwrite_attributes(webhook_data, options) unless options.empty?
       post_to_url(webhook_data)
       true
     end
   end
 
   # replace multiple values for multiple keys in a hash
-  def self.override_attributes(original_data, options={})
+  def self.overwrite_attributes(original_data, options={})
     data = original_data.clone
     if options
       options.each do |k,v|

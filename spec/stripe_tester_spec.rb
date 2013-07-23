@@ -58,20 +58,20 @@ describe StripeTester do
       expect { StripeTester.post_to_url() }.to raise_error
     end
 
-    it "#override_attributes should override attributes in default data to custom data" do
+    it "#overwrite_attributes should overwrite attributes in default data to custom data" do
       original_data = {name: 'john smith', info: {age: 45, gender: 'male'}}
-      override_data = {name: 'smith john', age: 99}
+      overwrite_data = {name: 'smith john', age: 99}
 
-      new_data = StripeTester.override_attributes(original_data, override_data)
+      new_data = StripeTester.overwrite_attributes(original_data, overwrite_data)
 
-      expect(new_data[:name]).to eq(override_data[:name])
-      expect(new_data[:info][:age]).to eq(override_data[:age])
+      expect(new_data[:name]).to eq(overwrite_data[:name])
+      expect(new_data[:info][:age]).to eq(overwrite_data[:age])
     end
 
-    it "#override_attributes should return an unmodified hash when options don't exist" do
+    it "#overwrite_attributes should return an unmodified hash when options don't exist" do
       original_data = {name: 'john smith', info: {age: 45, gender: 'male'}}
 
-      new_data = StripeTester.override_attributes(original_data)
+      new_data = StripeTester.overwrite_attributes(original_data)
 
       expect(new_data).to eq(original_data)
     end
