@@ -30,6 +30,8 @@ In your test:
 ```
        
 2. Send the webhook. This will send a POST request to the URL with the event data as JSON:
+
+  The default Stripe webhook version will be the latest supported version
 ```ruby
     # as a symbol
     StripeTester.create_event(:invoice_created)
@@ -38,9 +40,14 @@ In your test:
     StripeTester.create_event("invoice_created")
 ```
        
-Or if you want to overwrite certain attributes:
+  Or if you want to overwrite certain attributes:
 ```ruby
 StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp'})
+```
+
+  If you want to specify which version you would like to use:
+```ruby
+StripeTester.create_event(:invoice_created, "2013-05-07")
 ```
 
 ## Supported Webhooks 
