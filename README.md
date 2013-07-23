@@ -46,7 +46,7 @@ In your test:
 StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp'})
 ```
 
-  If you want to specify which version you would like to use:
+  If you want to specify which stripe webhook API version you would like to use:
 ```ruby
 StripeTester.create_event(:invoice_created, "2013-05-07")
 ```
