@@ -5,7 +5,7 @@ describe StripeTester do
   describe "instance methods" do
 
     before(:each) do
-      @version = "2013-07-05"
+      @version = "2013-02-13"
     end
 
     it "#load_template should return hash" do

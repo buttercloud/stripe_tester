@@ -63,6 +63,7 @@ StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp
 ----------------------------------------
 
 * 2013-07-05
+* 2013-02-13
 
 ## Issues
 ---------
