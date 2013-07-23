@@ -5,9 +5,11 @@ require 'json'
 
 module StripeTester
 
+  LATEST_STRIPE_VERSION = "2013-02-13"
+
   # when done test me
   # run callback with options to customize the json
-  def self.create_event(callback_type, stripe_version, options={})
+  def self.create_event(callback_type, stripe_version=LATEST_STRIPE_VERSION, options={})
     webhook_data = self.load_template(callback_type, stripe_version)
     if webhook_data
       webhook_data = overwrite_attributes(webhook_data, options) unless options.empty?
@@ -74,7 +76,7 @@ module StripeTester
     if File.exists?(path)
       template = Psych.load_file(path)
     else
-      raise "Webhook not found. Please use a correct webhook type"
+      raise "Webhook not found. Please use a correct webhook type or correct stripe version"
     end
   end
 
