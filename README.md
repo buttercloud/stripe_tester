@@ -18,12 +18,31 @@ Or install it yourself as:
 
 ## Usage
 
-1. Set the URL
-    StripeTester.webhook_url = "http://www.example.com/my_post_url"
-2. Send the webhook. This will send the specified event to the set URL.
-    StripeTester.create_event(:invoice_created)
-or if you want to override certain attributes
-    StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp'})
+1. Set the URL:
+        StripeTester.webhook_url = "http://www.example.com/my_post_url"
+2. Send the webhook. This will send the specified event to the set URL:
+        StripeTester.create_event(:invoice_created)
+        # or as a string
+        StripeTester.create_event("invoice_created")
+or if you want to override certain attributes:
+        StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp'})
+
+## Supported Webhooks
+
+* charge_failed
+* charge_refunded
+* charge_succeeded
+* customer_created
+* customer_deleted
+* customer_subscription_created
+* customer_subscription_deleted
+* customer_subscription_updated
+* invoice_created
+* invoice_payment_failed
+* invoice_payment_succeeded
+* invoice_updated
+
+## To-Do
 
 
 ## Contributing
