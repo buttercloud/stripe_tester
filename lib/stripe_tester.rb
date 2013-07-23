@@ -67,7 +67,10 @@ module StripeTester
 
   # load yaml with specified callback type
   def self.load_template(callback_type)
-    path = "./webhooks/#{callback_type}.yml"
+    spec = Gem::Specification.find_by_name("stripe_tester")
+    gem_root = spec.gem_dir
+
+    path = gem_root + "/webhooks/#{callback_type}.yml"
     if File.exists?(path)
       template = Psych.load_file(path)
     else
