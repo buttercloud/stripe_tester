@@ -22,6 +22,7 @@ $ gem install stripe_tester
 ## Requirements
 
 Ruby `>= 1.9.3`
+
 RSpec
 
 ## Usage
