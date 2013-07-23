@@ -24,6 +24,7 @@ In your test:
 1. Set the URL:
 
        StripeTester.webhook_url = "http://www.example.com/my_post_url"
+       
 2. Send the webhook. This will send a POST request to the URL with the event data as JSON:
 
        # as a symbol
@@ -31,6 +32,7 @@ In your test:
         
        # or as a string
        StripeTester.create_event("invoice_created")
+       
 or if you want to overwrite certain attributes:
 
       StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp'})
