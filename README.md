@@ -61,6 +61,7 @@ StripeTester.create_event(:invoice_created, "2013-05-07")
 * customer_subscription_created
 * customer_subscription_deleted
 * customer_subscription_updated
+* customer_subscription_trial_will_end
 * invoice_created
 * invoice_payment_failed
 * invoice_payment_succeeded

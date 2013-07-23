@@ -7,7 +7,6 @@ module StripeTester
 
   LATEST_STRIPE_VERSION = "2013-07-05"
 
-  # when done test me
   # run callback with options to customize the json
   def self.create_event(callback_type, stripe_version=LATEST_STRIPE_VERSION, options={})
     webhook_data = self.load_template(callback_type, stripe_version)
