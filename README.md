@@ -1,41 +1,47 @@
 # StripeTester
 
-Stripe tester is testing gem used to simulate Stripe webhooks and post them to a specified URL.
+StripeTester is a testing gem used to simulate Stripe webhooks and post them to a specified URL.
+
+StripeTester allows you to submit webhooks to your application without hitting Stripe or requiring connectivity. You can use it in your test suite to simulate webhooks and ensure that your application reacts accordingly. You can also use StripeTester in the console to simulate webhooks easily.
 
 ## Installation
 ---------------
 
 Add this line to your application's Gemfile:
-
-    gem 'stripe_tester'
-
+```ruby
+gem 'stripe_tester'
+```
 And then execute:
-
-    $ bundle
-
+```bash
+$ bundle
+```
 Or install it yourself as:
-
-    $ gem install stripe_tester
+```bash
+$ gem install stripe_tester
+```
 
 ## Usage
 --------
 In your test:
 
-1. Set the URL:
-
-        StripeTester.webhook_url = "http://www.example.com/my_post_url"
+1. Set the URL where the webhooks are handled:
+```ruby
+    StripeTester.webhook_url = "http://www.example.com/my_post_url"
+```
        
 2. Send the webhook. This will send a POST request to the URL with the event data as JSON:
-
-        # as a symbol
-        StripeTester.create_event(:invoice_created)
+```ruby
+    # as a symbol
+    StripeTester.create_event(:invoice_created)
         
-        # or as a string
-        StripeTester.create_event("invoice_created")
+    # or as a string
+    StripeTester.create_event("invoice_created")
+```
        
-or if you want to overwrite certain attributes:
-
-    StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp'})
+Or if you want to overwrite certain attributes:
+```ruby
+StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp'})
+```
 
 ## Supported Webhooks
 ---------------------
@@ -56,17 +62,46 @@ or if you want to overwrite certain attributes:
 ## Issues
 ---------
 
-
-## To-Do
---------
+* Overwriting attributes only overwrites the first occurrence of the key. It needs to overwrite all of the occurrences or make the user specify a certain one.
 
 
 ## Contributing
 ---------------
 
-1. Fork it
-2. Create your feature branch
-3. Commit your changes
-4. Run tests using `rspec spec` or `bundle exec rspec spec` and make sure everything is passing
-5. Push to the branch
-6. Create a new Pull Request
+* Fork it
+* Create your feature branch
+* Add your changes, and add a test for the changes.
+* Run tests using
+
+```bash 
+  $ rspec spec
+```
+* Make sure everything is passing
+* Push to the branch
+* Create a new Pull Request
+
+## License
+----------
+
+Copyright (c) 2013 ButterCloud LLC.
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
