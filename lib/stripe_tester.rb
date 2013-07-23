@@ -7,8 +7,8 @@ module StripeTester
 
   # when done test me
   # run callback with options to customize the json
-  def self.create_event(callback_type, options={})
-    webhook_data = self.load_template(callback_type)
+  def self.create_event(callback_type, stripe_version, options={})
+    webhook_data = self.load_template(callback_type, stripe_version)
     if webhook_data
       webhook_data = overwrite_attributes(webhook_data, options) unless options.empty?
       post_to_url(webhook_data)
@@ -66,11 +66,11 @@ module StripeTester
   end
 
   # load yaml with specified callback type
-  def self.load_template(callback_type)
+  def self.load_template(callback_type, version)
     spec = Gem::Specification.find_by_name("stripe_tester")
     gem_root = spec.gem_dir
 
-    path = gem_root + "/webhooks/#{callback_type}.yml"
+    path = gem_root + "/stripe_webhooks/#{version}/#{callback_type}.yml"
     if File.exists?(path)
       template = Psych.load_file(path)
     else

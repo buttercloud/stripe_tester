@@ -3,8 +3,13 @@ require 'spec_helper'
 describe StripeTester do
 
   describe "instance methods" do
+
+    before(:each) do
+      @version = "2013-07-05"
+    end
+
     it "#load_template should return hash" do
-      result = StripeTester.load_template(:invoice_created)
+      result = StripeTester.load_template(:invoice_created, @version)
 
       expect(result).to be_a_kind_of(Hash)
     end
@@ -12,7 +17,7 @@ describe StripeTester do
     it "#load_template should return correct callback type" do
       type = "invoice_created"
 
-      returned_hash = StripeTester.load_template(type)
+      returned_hash = StripeTester.load_template(type, @version)
       returned_type = returned_hash["type"]
 
       returned_type.sub!('.', '_')
@@ -23,7 +28,7 @@ describe StripeTester do
     it "#load_template should raise an exception when invalid event is given" do
       type = "incorrect_type"
 
-      expect { StripeTester.load_template(type) }.to raise_error
+      expect { StripeTester.load_template(type, @version) }.to raise_error
     end
 
     it "#webhook_url should set the default url for the class" do
@@ -51,6 +56,7 @@ describe StripeTester do
     end
 
     it "#post_to_url should send data to url" do
+
     end
 
     it "#post_to_url should raise an error if webhook URL is not set" do

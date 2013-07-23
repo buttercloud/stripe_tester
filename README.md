@@ -43,7 +43,7 @@ Or if you want to overwrite certain attributes:
 StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp'})
 ```
 
-## Supported Webhooks
+## Supported Webhooks 
 ---------------------
 
 * charge_failed
@@ -58,6 +58,11 @@ StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp
 * invoice_payment_failed
 * invoice_payment_succeeded
 * invoice_updated
+
+## Supported Stripe Webhook API Versions
+----------------------------------------
+
+* 2013-07-05
 
 ## Issues
 ---------
