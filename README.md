@@ -5,7 +5,6 @@ StripeTester is a testing gem used to simulate Stripe webhooks and post them to 
 StripeTester allows you to submit webhooks to your application without hitting Stripe or requiring connectivity. You can use it in your test suite to simulate webhooks and ensure that your application reacts accordingly. You can also use StripeTester in the console to simulate webhooks easily.
 
 ## Installation
----------------
 
 Add this line to your application's Gemfile:
 ```ruby
@@ -19,10 +18,14 @@ Or install it yourself as:
 ```bash
 $ gem install stripe_tester
 ```
-Ruby Version `>= 1.9.3`
+
+## Requirements
+
+Ruby `>= 1.9.3`
+RSpec
 
 ## Usage
---------
+
 In your test:
 
 1. Set the URL where the webhooks are handled:
@@ -52,7 +55,6 @@ StripeTester.create_event(:invoice_created, "2013-05-07")
 ```
 
 ## Supported Webhooks 
----------------------
 
 * charge_failed
 * charge_refunded
@@ -69,19 +71,15 @@ StripeTester.create_event(:invoice_created, "2013-05-07")
 * invoice_updated
 
 ## Supported Stripe Webhook API Versions
-----------------------------------------
 
 * 2013-07-05
 * 2013-02-13
 
 ## Issues
----------
 
 * Overwriting attributes only overwrites the first occurrence of the key. It needs to overwrite all of the occurrences or make the user specify a certain one.
 
-
 ## Contributing
----------------
 
 * Fork it
 * Create your feature branch
@@ -96,7 +94,6 @@ StripeTester.create_event(:invoice_created, "2013-05-07")
 * Create a new Pull Request
 
 ## License
-----------
 
 Copyright (c) 2013 ButterCloud LLC.
 
