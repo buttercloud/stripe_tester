@@ -19,6 +19,7 @@ Or install it yourself as:
 ```bash
 $ gem install stripe_tester
 ```
+Ruby Version `>= 1.9.3`
 
 ## Usage
 --------
