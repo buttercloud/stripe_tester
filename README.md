@@ -1,6 +1,6 @@
 # StripeTester
 
-TODO: Write a gem description
+Stripe tester is testing gem used to simulate Stripe webhooks and post them to a specified URL.
 
 ## Installation
 
@@ -18,12 +18,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Set the URL
+    StripeTester.webhook_url = "http://www.example.com/my_post_url"
+2. Send the webhook. This will send the specified event to the set URL.
+    StripeTester.create_event(:invoice_created)
+or if you want to override certain attributes
+    StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp'})
+
 
 ## Contributing
 
 1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
