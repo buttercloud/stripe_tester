@@ -1,0 +1,24 @@
+---
+created: 1326853478
+data:
+  object:
+    account_balance: 0
+    cards:
+      count: 0
+      data: []
+      object: list
+      url: /v1/customers/cus_2FbF4FTM3YPGLz/cards
+    created: 1374586907
+    default_card: 
+    delinquent: false
+    description: 
+    discount: 
+    email: 
+    id: cus_00000000000000
+    livemode: false
+    object: customer
+    subscription: 
+id: evt_00000000000000
+livemode: false
+object: event
+type: customer.deleted

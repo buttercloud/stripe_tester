@@ -1,0 +1,30 @@
+---
+created: 1326853478
+data:
+  object:
+    cancel_at_period_end: false
+    canceled_at: 
+    current_period_end: 1377265641
+    current_period_start: 1374587241
+    customer: cus_00000000000000
+    ended_at: 
+    object: subscription
+    plan:
+      amount: 100
+      currency: usd
+      id: JAVA-PLAN-a7761760-534c-41b2-85c0-2006ac8f6d0c_00000000000000
+      interval: month
+      interval_count: 1
+      livemode: false
+      name: Java Bindings Plan
+      object: plan
+      trial_period_days: 
+    quantity: 1
+    start: 1374587241
+    status: trialing
+    trial_end: 1374803771
+    trial_start: 1374544571
+id: evt_00000000000000
+livemode: false
+object: event
+type: customer.subscription.trial_will_end

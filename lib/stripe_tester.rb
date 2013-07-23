@@ -5,7 +5,7 @@ require 'json'
 
 module StripeTester
 
-  LATEST_STRIPE_VERSION = "2013-02-13"
+  LATEST_STRIPE_VERSION = "2013-07-05"
 
   # when done test me
   # run callback with options to customize the json

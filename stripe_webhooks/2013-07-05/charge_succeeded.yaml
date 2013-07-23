@@ -1,0 +1,45 @@
+---
+created: 1326853478
+data:
+  object:
+    amount: 100
+    amount_refunded: 0
+    captured: true
+    card:
+      address_city: 
+      address_country: 
+      address_line1: 
+      address_line1_check: 
+      address_line2: 
+      address_state: 
+      address_zip: 
+      address_zip_check: 
+      country: US
+      customer: 
+      cvc_check: 
+      exp_month: 8
+      exp_year: 2014
+      fingerprint: TTKQdP1Omgi1czlY
+      last4: '4242'
+      name: 
+      object: card
+      type: Visa
+    created: 1374586676
+    currency: usd
+    customer: 
+    description: My First Test Charge (created for API docs)
+    dispute: 
+    failure_code: 
+    failure_message: 
+    fee: 0
+    fee_details: []
+    id: ch_00000000000000
+    invoice: 
+    livemode: false
+    object: charge
+    paid: true
+    refunded: false
+id: evt_00000000000000
+livemode: false
+object: event
+type: charge.succeeded
