@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["info@buttercloud.com"]
   spec.description   = %q{Test Stripe webhooks locally}
   spec.summary       = %q{Test Stripe webhooks locally}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/buttercloud/stripe_tester"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
