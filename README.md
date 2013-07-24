@@ -54,6 +54,15 @@ StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp
 ```ruby
 StripeTester.create_event(:invoice_created, "2013-05-07")
 ```
+  
+  If you want to load the JSON only:
+```ruby
+    # default stripe version
+    json = StripeTester.load_template(:invoice_payment_failed)
+
+    # specified stripe version
+    json_version = StripeTester.load_template(:invoice_payment_failed, "2013-02-13")
+```
 
 ## Supported Webhooks 
 
