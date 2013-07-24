@@ -7,9 +7,10 @@ module StripeTester
 
   LATEST_STRIPE_VERSION = "2013-07-05"
 
-  # run callback with options to customize the json
-  def self.create_event(callback_type, stripe_version=LATEST_STRIPE_VERSION, options={})
-    webhook_data = self.load_template(callback_type, stripe_version)
+  # send the url the webhook event
+  def self.create_event(callback_type, options={})
+    webhook_data = self.load_template(callback_type)
+
     if webhook_data
       webhook_data = overwrite_attributes(webhook_data, options) unless options.empty?
       post_to_url(webhook_data)
@@ -66,15 +67,16 @@ module StripeTester
   end
 
   # load yaml with specified callback type
-  def self.load_template(callback_type, version=LATEST_STRIPE_VERSION)
+  def self.load_template(callback_type)
     spec = Gem::Specification.find_by_name("stripe_tester")
     gem_root = spec.gem_dir
+    version = StripeTester.stripe_version
 
     path = gem_root + "/stripe_webhooks/#{version}/#{callback_type}.yml"
     if File.exists?(path)
       template = Psych.load_file(path)
     else
-      raise "Webhook not found. Please use a correct webhook type or correct stripe version"
+      raise "Webhook not found. Please use a correct webhook type or correct Stripe version"
     end
   end
 
@@ -92,5 +94,13 @@ module StripeTester
 
   def self.remove_url
     @url = nil
+  end
+
+  def self.stripe_version=(version)
+    @version = version
+  end
+
+  def self.stripe_version
+    @version ? @version : LATEST_STRIPE_VERSION
   end
 end

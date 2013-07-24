@@ -4,13 +4,18 @@ describe StripeTester do
 
   describe "instance methods" do
 
+    LATEST_STRIPE_VERSION = "2013-07-05"
+
     before(:each) do
-      @version = "2013-02-13"
       StripeTester.remove_url
     end
 
+    after(:each) do
+      StripeTester.stripe_version = nil
+    end
+
     it "#load_template should return hash" do
-      result = StripeTester.load_template(:invoice_created, @version)
+      result = StripeTester.load_template(:invoice_created)
 
       expect(result).to be_a_kind_of(Hash)
     end
@@ -18,7 +23,7 @@ describe StripeTester do
     it "#load_template should return correct callback type" do
       type = "invoice_created"
 
-      returned_hash = StripeTester.load_template(type, @version)
+      returned_hash = StripeTester.load_template(type)
       returned_type = returned_hash["type"]
 
       returned_type.sub!('.', '_')
@@ -29,26 +34,21 @@ describe StripeTester do
     it "#load_template should raise an exception when invalid event is given" do
       type = "incorrect_type"
 
-      expect { StripeTester.load_template(type, @version) }.to raise_error
+      expect { StripeTester.load_template(type) }.to raise_error
     end
 
-    it "#load_template should use the default stripe version if no version is specified" do
-      latest_version = "2013-07-05"
+    it "#stripe_version should set the correct stripe version" do
+      version = "2013-02-13"
+      StripeTester.stripe_version = version
 
-      latest = StripeTester.load_template(:charge_succeeded, latest_version)
-      actual = StripeTester.load_template(:charge_succeeded)
-
-      expect(actual).to eq(latest)
+      expect(StripeTester.stripe_version).to eq version
     end
 
-    it "#load_template should use the specified stripe version instead of the default" do
-      latest = StripeTester.load_template(:charge_succeeded) 
-      actual = StripeTester.load_template(:charge_succeeded, @version)
-      
-      expect(actual).to_not eq(latest)
+    it "#stripe_version should return the latest version when no version has been specified" do
+      expect(StripeTester.stripe_version).to eq LATEST_STRIPE_VERSION
     end
 
-    it "#webhook_url should set the default url for the class" do
+    it "#webhook_url should set the correct url" do
       url = 'http://www.google.com'
       StripeTester.webhook_url = url
 
@@ -129,7 +129,7 @@ describe StripeTester do
     end
 
     it "#create_event should send the event to the URL with the modified hash if options exist" do
-      
+
     end
 
     it "#create_event should send the event with an unmodified hash to the URL if options don't exist" do
