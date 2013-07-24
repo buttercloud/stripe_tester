@@ -13,7 +13,6 @@ module StripeTester
     if webhook_data
       webhook_data = overwrite_attributes(webhook_data, options) unless options.empty?
       post_to_url(webhook_data)
-      true
     end
   end
 
@@ -57,7 +56,7 @@ module StripeTester
 
       case res
       when Net::HTTPSuccess, Net::HTTPRedirection
-        # good
+        true
       else
         res.value
       end
@@ -67,7 +66,7 @@ module StripeTester
   end
 
   # load yaml with specified callback type
-  def self.load_template(callback_type, version)
+  def self.load_template(callback_type, version=LATEST_STRIPE_VERSION)
     spec = Gem::Specification.find_by_name("stripe_tester")
     gem_root = spec.gem_dir
 
