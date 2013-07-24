@@ -69,8 +69,33 @@ describe StripeTester do
       expect(StripeTester.webhook_url).to eq(nil)
     end
 
-    it "#post_to_url should send data to url" do
+    it "#post_to_url should return true when request is successful" do
+      data = StripeTester.load_template(:invoice_created)
+      url = "http://localhost:3000/transactions"
+      StripeTester.webhook_url = url
 
+      FakeWeb.register_uri(:post, 
+                           url, 
+                           body: data.to_json, 
+                           content_type: 'application/json')
+
+      response = StripeTester.post_to_url(data)
+
+      expect(response).to be(true)
+    end
+
+    it "#post_to_url should raise an error when request fails" do
+      data = StripeTester.load_template(:invoice_created)
+      url = "http://localhost:3000/"
+      StripeTester.webhook_url = url
+
+      FakeWeb.register_uri(:post, 
+                           url, 
+                           body: data.to_json, 
+                           content_type: 'application/json',
+                           status: ["404", "Not Found"])
+
+      expect{ StripeTester.post_to_url(data) }.to raise_error('404 "Not Found"')
     end
 
     it "#post_to_url should raise an error if webhook URL is not set" do
