@@ -1,5 +1,4 @@
 require 'spec_helper'
-require "mocha/api"
 
 describe StripeTester do
 
