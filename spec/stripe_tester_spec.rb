@@ -81,7 +81,7 @@ describe StripeTester do
 
       response = StripeTester.post_to_url(data)
 
-      expect(response).to be(true)
+      expect(response).to be_true
     end
 
     it "#post_to_url should raise an error when request fails" do
@@ -126,14 +126,6 @@ describe StripeTester do
       new_data = StripeTester.replace_value(original_data, :age, 99)
 
       expect(new_data[:info][:age]).to eq(99)
-    end
-
-    it "#create_event should send the event to the URL with the modified hash if options exist" do
-
-    end
-
-    it "#create_event should send the event with an unmodified hash to the URL if options don't exist" do
-      
     end
   end
 end
