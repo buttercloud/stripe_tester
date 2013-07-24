@@ -34,7 +34,7 @@ In your test:
     StripeTester.webhook_url = "http://www.example.com/my_post_url"
 ```
 
-2. If you want to specify which Stripe webhook API version you would like to use (the default will be the latest supported version):
+2. If you want to specify which Stripe webhook API version you would like to use (the default will be the latest [supported version](https://github.com/buttercloud/stripe_tester#supported-stripe-webhook-api-versions)):
 ```ruby
     StripeTester.stripe_version = "2013-09-08"
 ```
