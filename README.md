@@ -33,10 +33,13 @@ In your test:
 ```ruby
     StripeTester.webhook_url = "http://www.example.com/my_post_url"
 ```
-       
-2. Send the webhook. This will send a POST request to the URL with the event data as JSON:
 
-  The default Stripe webhook version will be the latest supported version
+2. If you want to specify which Stripe webhook API version you would like to use (the default will be the latest supported version):
+```ruby
+    StripeTester.stripe_version = "2013-09-08"
+```
+
+3. Send the webhook. This will send a POST request to the URL with the event data as JSON:
 ```ruby
     # as a symbol
     StripeTester.create_event(:invoice_created)
@@ -44,24 +47,15 @@ In your test:
     # or as a string
     StripeTester.create_event("invoice_created")
 ```
-       
+
   Or if you want to overwrite certain attributes:
 ```ruby
 StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp'})
 ```
 
-  If you want to specify which stripe webhook API version you would like to use:
-```ruby
-StripeTester.create_event(:invoice_created, "2013-05-07")
-```
-  
   If you want to load the JSON only:
 ```ruby
-    # default stripe version
-    json = StripeTester.load_template(:invoice_payment_failed)
-
-    # specified stripe version
-    json_version = StripeTester.load_template(:invoice_payment_failed, "2013-02-13")
+json = StripeTester.load_template(:invoice_payment_failed)
 ```
 
 ## Supported Webhooks 
