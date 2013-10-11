@@ -4,7 +4,7 @@ livemode: false
 id: evt_00000000000000
 type: invoice.created
 object: event
-data: &1
+data:
   object:
     date: 1381502959
     id: in_00000000000000
@@ -13,7 +13,7 @@ data: &1
     lines:
       data:
       -
-        id: su_2jcytymighxDRS
+        id: su_2jdlfGgkFBBFyV
         object: line_item
         type: subscription
         livemode: true
@@ -55,12 +55,3 @@ data: &1
     charge: 
     discount: 
     application_fee: 
-action: create
-controller: stripe_events
-stripe_event:
-  created: 1326853478
-  livemode: false
-  id: evt_00000000000000
-  type: invoice.created
-  object: event
-  data: *1

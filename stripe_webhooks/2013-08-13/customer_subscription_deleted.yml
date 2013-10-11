@@ -4,7 +4,7 @@ livemode: false
 id: evt_00000000000000
 type: customer.subscription.deleted
 object: event
-data: &1
+data:
   object:
     id: su_00000000000000
     plan:
@@ -18,7 +18,7 @@ data: &1
       interval_count: 1
       trial_period_days: 30
     object: subscription
-    start: 1381512523
+    start: 1381515458
     status: canceled
     customer: cus_00000000000000
     cancel_at_period_end: false
@@ -30,12 +30,3 @@ data: &1
     canceled_at: 
     quantity: 1
     application_fee_percent: 
-action: create
-controller: stripe_events
-stripe_event:
-  created: 1326853478
-  livemode: false
-  id: evt_00000000000000
-  type: customer.subscription.deleted
-  object: event
-  data: *1

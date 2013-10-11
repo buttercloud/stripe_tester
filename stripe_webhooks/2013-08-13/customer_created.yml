@@ -4,7 +4,7 @@ livemode: false
 id: evt_00000000000000
 type: customer.created
 object: event
-data: &1
+data:
   object:
     object: customer
     created: 1381502839
@@ -13,7 +13,7 @@ data: &1
     description: Demo Organization
     email: 
     delinquent: false
-    metadata: {}
+    metadata:
     subscription:
       id: su_00000000000000
       plan:
@@ -67,12 +67,3 @@ data: &1
         address_line1_check: 
         address_zip_check: 
     default_card: card_2jcPZBywLcGWwb
-action: create
-controller: stripe_events
-stripe_event:
-  created: 1326853478
-  livemode: false
-  id: evt_00000000000000
-  type: customer.created
-  object: event
-  data: *1

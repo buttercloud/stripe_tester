@@ -4,7 +4,7 @@ livemode: false
 id: evt_00000000000000
 type: customer.discount.updated
 object: event
-data: &1
+data:
   object:
     coupon:
       id: BETAYEAR_00000000000000
@@ -18,10 +18,10 @@ data: &1
       max_redemptions: 
       times_redeemed: 0
       duration_in_months: 12
-    start: 1381512514
+    start: 1381515442
     object: discount
     customer: cus_00000000000000
-    end: 1413048514
+    end: 1413051442
   previous_attributes:
     coupon:
       id: OLD_COUPON_ID
@@ -35,12 +35,3 @@ data: &1
       max_redemptions: 
       times_redeemed: 0
       duration_in_months: 12
-action: create
-controller: stripe_events
-stripe_event:
-  created: 1326853478
-  livemode: false
-  id: evt_00000000000000
-  type: customer.discount.updated
-  object: event
-  data: *1

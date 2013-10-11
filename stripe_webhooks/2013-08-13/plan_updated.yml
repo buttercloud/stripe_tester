@@ -4,7 +4,7 @@ livemode: false
 id: evt_00000000000000
 type: plan.updated
 object: event
-data: &1
+data:
   object:
     interval: month
     name: Gold
@@ -17,12 +17,3 @@ data: &1
     trial_period_days: 30
   previous_attributes:
     name: Old name
-action: create
-controller: stripe_events
-stripe_event:
-  created: 1326853478
-  livemode: false
-  id: evt_00000000000000
-  type: plan.updated
-  object: event
-  data: *1

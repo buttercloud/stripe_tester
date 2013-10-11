@@ -4,7 +4,7 @@ livemode: false
 id: evt_00000000000000
 type: customer.subscription.trial_will_end
 object: event
-data: &1
+data:
   object:
     id: su_00000000000000
     plan:
@@ -18,24 +18,15 @@ data: &1
       interval_count: 1
       trial_period_days: 30
     object: subscription
-    start: 1381512526
+    start: 1381515461
     status: trialing
     customer: cus_00000000000000
     cancel_at_period_end: false
     current_period_start: 1381502959
     current_period_end: 1384094959
     ended_at: 
-    trial_start: 1381458108
-    trial_end: 1381717308
+    trial_start: 1381458127
+    trial_end: 1381717327
     canceled_at: 
     quantity: 1
     application_fee_percent: 
-action: create
-controller: stripe_events
-stripe_event:
-  created: 1326853478
-  livemode: false
-  id: evt_00000000000000
-  type: customer.subscription.trial_will_end
-  object: event
-  data: *1

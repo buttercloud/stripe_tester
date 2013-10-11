@@ -4,7 +4,7 @@ livemode: false
 id: evt_00000000000000
 type: account.updated
 object: event
-data: &1
+data:
   object:
     id: user_00000000000000
     email: test@stripe.com
@@ -19,12 +19,3 @@ data: &1
     object: account
   previous_attributes:
     details_submitted: false
-action: create
-controller: stripe_events
-stripe_event:
-  created: 1326853478
-  livemode: false
-  id: evt_00000000000000
-  type: account.updated
-  object: event
-  data: *1
