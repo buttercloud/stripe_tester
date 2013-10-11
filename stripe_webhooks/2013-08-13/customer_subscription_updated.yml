@@ -1,0 +1,52 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: customer.subscription.updated
+object: event
+data: &1
+  object:
+    id: su_00000000000000
+    plan:
+      interval: month
+      name: Gold
+      amount: 7900
+      currency: usd
+      id: gold-v1_00000000000000
+      object: plan
+      livemode: false
+      interval_count: 1
+      trial_period_days: 30
+    object: subscription
+    start: 1381512521
+    status: trialing
+    customer: cus_00000000000000
+    cancel_at_period_end: false
+    current_period_start: 1381502959
+    current_period_end: 1384094959
+    ended_at: 
+    trial_start: 1381502959
+    trial_end: 1384094959
+    canceled_at: 
+    quantity: 1
+    application_fee_percent: 
+  previous_attributes:
+    plan:
+      interval: month
+      name: Old plan
+      amount: 7900
+      currency: usd
+      id: OLD_PLAN_ID
+      object: plan
+      livemode: false
+      interval_count: 1
+      trial_period_days: 30
+action: create
+controller: stripe_events
+stripe_event:
+  created: 1326853478
+  livemode: false
+  id: evt_00000000000000
+  type: customer.subscription.updated
+  object: event
+  data: *1

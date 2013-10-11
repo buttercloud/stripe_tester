@@ -5,7 +5,7 @@ require 'json'
 
 module StripeTester
 
-  LATEST_STRIPE_VERSION = "2013-07-05"
+  LATEST_STRIPE_VERSION = "2013-08-13"
 
   # send the url the webhook event
   def self.create_event(callback_type, options={})

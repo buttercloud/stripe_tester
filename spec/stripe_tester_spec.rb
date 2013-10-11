@@ -4,7 +4,7 @@ describe StripeTester do
 
   describe "instance methods" do
 
-    LATEST_STRIPE_VERSION = "2013-07-05"
+    LATEST_STRIPE_VERSION = "2013-08-13"
 
     before(:each) do
       StripeTester.remove_url

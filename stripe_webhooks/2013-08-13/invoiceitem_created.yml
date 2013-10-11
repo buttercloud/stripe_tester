@@ -1,0 +1,27 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: invoiceitem.created
+object: event
+data: &1
+  object:
+    object: invoiceitem
+    id: ii_00000000000000
+    date: 1381512550
+    amount: 1000
+    livemode: false
+    proration: false
+    currency: usd
+    customer: cus_00000000000000
+    description: My First Invoice Item (created for API docs)
+    invoice: 
+action: create
+controller: stripe_events
+stripe_event:
+  created: 1326853478
+  livemode: false
+  id: evt_00000000000000
+  type: invoiceitem.created
+  object: event
+  data: *1

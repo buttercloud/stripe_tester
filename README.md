@@ -60,6 +60,8 @@ json = StripeTester.load_template(:invoice_payment_failed)
 
 ## Supported Webhooks 
 
+Before version 2013-08-13:
+
 * charge_failed
 * charge_refunded
 * charge_succeeded
@@ -73,6 +75,10 @@ json = StripeTester.load_template(:invoice_payment_failed)
 * invoice_payment_failed
 * invoice_payment_succeeded
 * invoice_updated
+
+After version 2013-08-13:
+
+* All webhooks are supported
 
 ## Supported Stripe Webhook API Versions
 

@@ -1,0 +1,30 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: account.updated
+object: event
+data: &1
+  object:
+    id: user_00000000000000
+    email: test@stripe.com
+    statement_descriptor: TEST
+    details_submitted: true
+    charge_enabled: false
+    transfer_enabled: false
+    currencies_supported:
+    - USD
+    default_currency: USD
+    country: US
+    object: account
+  previous_attributes:
+    details_submitted: false
+action: create
+controller: stripe_events
+stripe_event:
+  created: 1326853478
+  livemode: false
+  id: evt_00000000000000
+  type: account.updated
+  object: event
+  data: *1
