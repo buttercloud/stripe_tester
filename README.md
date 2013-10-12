@@ -60,7 +60,7 @@ json = StripeTester.load_template(:invoice_payment_failed)
 
 ## Supported Webhooks 
 
-Before version 2013-08-13:
+Version 2013-08-13:
 
 * charge_failed
 * charge_refunded
@@ -76,12 +76,49 @@ Before version 2013-08-13:
 * invoice_payment_succeeded
 * invoice_updated
 
-After version 2013-08-13:
+Version 2013-08-13:
 
-* All webhooks are supported
+* account.updated
+* balance.available
+* charge.dispute.closed
+* charge.dispute.created
+* charge.dispute.updated
+* charge.failed
+* charge.refunded
+* charge.succeeded
+* coupon.created
+* coupon.deleted
+* customer.card.created
+* customer.card.deleted
+* customer.card.updated
+* customer.created
+* customer.deleted
+* customer.discount.created
+* customer.discount.deleted
+* customer.discount.updated
+* customer.subscription.created
+* customer.subscription.deleted
+* customer.subscription.trial_will_end
+* customer.subscription.updated
+* customer.updated
+* invoice.created
+* invoice.payment_failed
+* invoice.payment_succeeded
+* invoice.updated
+* invoiceitem.created
+* invoiceitem.deleted
+* invoiceitem.updated
+* plan.created
+* plan.deleted
+* plan.updated
+* transfer.created
+* transfer.failed
+* transfer.paid
+* transfer.updated
 
 ## Supported Stripe Webhook API Versions
 
+* 2013-08-13
 * 2013-07-05
 * 2013-02-13
 
