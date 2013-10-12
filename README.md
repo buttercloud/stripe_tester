@@ -55,7 +55,7 @@ StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp
 
   Or you can explicitly overwrite certain attributes using deep object merging:
 ```ruby
-StripeTester.create_event(:customer_subscription_created, {"data": {"object": {"plan": {"id": "gold-v1"}}}})
+StripeTester.create_event(:customer_subscription_created, {"data"=>{"object"=>{"plan"=>{"id"=>"gold-v1"}}}})
 ```
 
   If you want to load the JSON only:
