@@ -127,5 +127,23 @@ describe StripeTester do
 
       expect(new_data[:info][:age]).to eq(99)
     end
+
+    it "#merge_attributes should do a deep merge" do
+      original_data = {name: 'john smith',
+                       info: {age: 45,
+                              gender: 'male',
+                              occupation: {title: 'Software Developer',
+                                           employer: 'ACME, Inc'},
+                              address: {street: '123 Fake St',
+                                        city: 'Somewhere',
+                                        state: 'NC',
+                                        zip: '12345'}}}
+      new_data = StripeTester.merge_attributes(original_data, {name: 'jane smith', info: {gender: 'female', address: {city: 'Springfield'}}})
+      expect(new_data[:name]).to eq('jane smith')
+      expect(new_data[:info][:gender]).to eq('female')
+      expect(new_data[:info][:age]).to eq(45)
+      expect(new_data[:info][:address][:city]).to eq('Springfield')
+      expect(new_data[:info][:address][:state]).to eq('NC')
+    end
   end
 end

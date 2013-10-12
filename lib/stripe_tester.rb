@@ -8,20 +8,28 @@ module StripeTester
   LATEST_STRIPE_VERSION = "2013-08-13"
 
   # send the url the webhook event
-  def self.create_event(callback_type, options={})
+  # There are two options you can use.  :method=>:overwrite, or :method=>:merge
+  # Each will use a different way of merging the new attributes.
+  def self.create_event(callback_type, attributes={}, options={method: :overwrite})
     webhook_data = self.load_template(callback_type)
 
     if webhook_data
-      webhook_data = overwrite_attributes(webhook_data, options) unless options.empty?
+      unless attributes.empty?
+        if options[:method] == :merge
+          webhook_data = merge_attributes(webhook_data, attributes)
+        else
+          webhook_data = overwrite_attributes(webhook_data, attributes)
+        end
+      end
       post_to_url(webhook_data)
     end
   end
 
   # replace multiple values for multiple keys in a hash
-  def self.overwrite_attributes(original_data, options={})
+  def self.overwrite_attributes(original_data, attributes={})
     data = original_data.clone
-    if options
-      options.each do |k,v|
+    if attributes
+      attributes.each do |k,v|
         replace_value(data, k, v)
       end
     end
@@ -39,6 +47,21 @@ module StripeTester
       end
       hash
     end
+  end
+
+  # deep merge original_attributes with new_attributes
+  def self.merge_attributes(original_attributes, new_attributes={})
+    original_attributes = original_attributes.clone
+    if new_attributes
+      new_attributes.each do |key, value|
+        if value.is_a?(Hash) && original_attributes[key].is_a?(Hash)
+          original_attributes[key] = self.merge_attributes original_attributes[key], value
+        else
+          original_attributes[key] = value
+        end
+      end
+    end
+    original_attributes
   end
 
   def self.post_to_url(data={})
