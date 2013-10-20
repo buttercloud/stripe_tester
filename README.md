@@ -1,5 +1,7 @@
 # StripeTester
 
+[![wercker status](https://app.wercker.com/status/b7beba8a128a081bdeec003a15aafbaa "wercker status")](https://app.wercker.com/project/bykey/b7beba8a128a081bdeec003a15aafbaa)
+
 StripeTester is a testing gem used to simulate Stripe webhooks and post them to a specified URL.
 
 StripeTester allows you to submit webhooks to your application without hitting Stripe or requiring connectivity. You can use it in your test suite to simulate webhooks and ensure that your application reacts accordingly. You can also use StripeTester in the console to simulate webhooks easily.
