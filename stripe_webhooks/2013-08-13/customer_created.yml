@@ -1,0 +1,69 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: customer.created
+object: event
+data:
+  object:
+    object: customer
+    created: 1381502839
+    id: cus_00000000000000
+    livemode: false
+    description: Demo Organization
+    email: 
+    delinquent: false
+    metadata:
+    subscription:
+      id: su_00000000000000
+      plan:
+        interval: month
+        name: Bronze
+        amount: 1900
+        currency: usd
+        id: bronze-v1_00000000000000
+        object: plan
+        livemode: false
+        interval_count: 1
+        trial_period_days: 30
+      object: subscription
+      start: 1381503076
+      status: trialing
+      customer: cus_00000000000000
+      cancel_at_period_end: false
+      current_period_start: 1381502959
+      current_period_end: 1384094959
+      ended_at: 
+      trial_start: 1381502959
+      trial_end: 1384094959
+      canceled_at: 
+      quantity: 1
+      application_fee_percent: 
+    discount: 
+    account_balance: 0
+    cards:
+      object: list
+      count: 1
+      url: /v1/customers/cus_2jaMnKi14NFHOn/cards
+      data:
+      -
+        id: card_2jcPZBywLcGWwb
+        object: card
+        last4: '4242'
+        type: Visa
+        exp_month: 8
+        exp_year: 2018
+        fingerprint: XslDljXmd9D6ii0D
+        customer: cus_2jaMnKi14NFHOn
+        country: US
+        name: 
+        address_line1: 
+        address_line2: 
+        address_city: 
+        address_state: 
+        address_zip: 
+        address_country: 
+        cvc_check: pass
+        address_line1_check: 
+        address_zip_check: 
+    default_card: card_2jcPZBywLcGWwb

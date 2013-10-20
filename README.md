@@ -48,9 +48,14 @@ In your test:
     StripeTester.create_event("invoice_created")
 ```
 
-  Or if you want to overwrite certain attributes:
+  Or if you want to overwrite certain attributes globally:
 ```ruby
 StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp'})
+```
+
+  Or you can explicitly overwrite certain attributes using deep object merging:
+```ruby
+StripeTester.create_event(:customer_subscription_created, {"data"=>{"object"=>{"plan"=>{"id"=>"gold-v1"}}}}, :method=>:merge)
 ```
 
   If you want to load the JSON only:
@@ -59,6 +64,8 @@ json = StripeTester.load_template(:invoice_payment_failed)
 ```
 
 ## Supported Webhooks 
+
+Version 2013-07-05:
 
 * charge_failed
 * charge_refunded
@@ -74,8 +81,49 @@ json = StripeTester.load_template(:invoice_payment_failed)
 * invoice_payment_succeeded
 * invoice_updated
 
+Version 2013-08-13:
+
+* account.updated
+* balance.available
+* charge.dispute.closed
+* charge.dispute.created
+* charge.dispute.updated
+* charge.failed
+* charge.refunded
+* charge.succeeded
+* coupon.created
+* coupon.deleted
+* customer.card.created
+* customer.card.deleted
+* customer.card.updated
+* customer.created
+* customer.deleted
+* customer.discount.created
+* customer.discount.deleted
+* customer.discount.updated
+* customer.subscription.created
+* customer.subscription.deleted
+* customer.subscription.trial_will_end
+* customer.subscription.updated
+* customer.updated
+* invoice.created
+* invoice.payment_failed
+* invoice.payment_succeeded
+* invoice.updated
+* invoiceitem.created
+* invoiceitem.deleted
+* invoiceitem.updated
+* plan.created
+* plan.deleted
+* plan.updated
+* transfer.created
+* transfer.failed
+* transfer.paid
+* transfer.updated
+
 ## Supported Stripe Webhook API Versions
 
+* 2013-08-13
 * 2013-07-05
 * 2013-02-13
 

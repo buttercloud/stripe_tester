@@ -1,0 +1,29 @@
+---
+id: evt_2jh8OEENtnnmRi
+created: 1381528022
+livemode: false
+type: customer.card.created
+data:
+  object:
+    id: card_2jh8hwN9I8SECo
+    object: card
+    last4: '0005'
+    type: American Express
+    exp_month: 8
+    exp_year: 2018
+    fingerprint: vAwzhGBy9fqqmClQ
+    customer: cus_2jaMnKi14NFHOn
+    country: US
+    name: 
+    address_line1: 
+    address_line2: 
+    address_city: 
+    address_state: 
+    address_zip: 
+    address_country: 
+    cvc_check: pass
+    address_line1_check: 
+    address_zip_check: 
+object: event
+pending_webhooks: 1
+request: iar_2jh8HvyPuA8e0w

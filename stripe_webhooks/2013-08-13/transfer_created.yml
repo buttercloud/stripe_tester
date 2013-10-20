@@ -1,0 +1,21 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: transfer.created
+object: event
+data:
+  object:
+    id: tr_00000000000000
+    object: transfer
+    date: 1381536000
+    livemode: true
+    amount: 1100
+    currency: usd
+    status: pending
+    balance_transaction: txn_00000000000000
+    account: 
+    description: Transfer to test@example.com
+    metadata:
+    statement_descriptor: 
+    recipient: rp_00000000000000
