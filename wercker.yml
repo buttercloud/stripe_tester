@@ -20,3 +20,13 @@ build:
     - script:
        name: rspec
        code: bundle exec rspec
+
+  after-steps:
+    - fhirzall/email-notify:
+        from: notify@buttercloud.com
+        to: luay@buttercloud.com
+        username: info@buttercloud.com
+        password: BCGrid1986
+        host: smtp.sendgrid.net:587
+        failed-body: FAIL
+        passed-body: PASS
