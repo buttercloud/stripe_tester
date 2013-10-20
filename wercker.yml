@@ -17,7 +17,6 @@ build:
           echo "from location $(which ruby)"
           echo -p "gem list: $(gem list)"
 
-    Add more steps here:
     - script:
        name: rspec
        code: bundle exec rspec
