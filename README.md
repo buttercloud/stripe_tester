@@ -129,10 +129,6 @@ Version 2013-08-13:
 * 2013-07-05
 * 2013-02-13
 
-## Issues
-
-* Overwriting attributes only overwrites the first occurrence of the key. It needs to overwrite all of the occurrences or make the user specify a certain one.
-
 ## Contributing
 
 * Fork it
