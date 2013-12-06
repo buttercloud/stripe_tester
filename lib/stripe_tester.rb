@@ -2,6 +2,7 @@ require "stripe_tester/version"
 require 'uri'
 require 'net/http'
 require 'json'
+require 'psych'
 
 module StripeTester
 
