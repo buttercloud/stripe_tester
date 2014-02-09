@@ -102,6 +102,21 @@ describe StripeTester do
       expect { StripeTester.post_to_url() }.to raise_error
     end
 
+    it "#post_to_url should support HTTPS requests" do
+      data = StripeTester.load_template(:invoice_created)
+      url = "https://localhost:3000/pathname"
+      StripeTester.webhook_url = url
+
+      FakeWeb.register_uri(:post, 
+                           url, 
+                           body: data.to_json, 
+                           content_type: 'application/json')
+
+      response = StripeTester.post_to_url(data)
+
+      expect(response).to be_true
+    end
+
     it "#overwrite_attributes should overwrite attributes in default data to custom data" do
       original_data = {name: 'john smith', info: {age: 45, gender: 'male'}}
       overwrite_data = {name: 'smith john', age: 99}

@@ -74,8 +74,11 @@ module StripeTester
       req.content_type = 'application/json'
       req.body = data.to_json
 
+      http_object = Net::HTTP.new(post_url.hostname, post_url.port)
+      http_object.use_ssl = true if post_url.scheme == 'https'
+
       # send request
-      res = Net::HTTP.start(post_url.hostname, post_url.port) do |http|
+      res = http_object.start do |http|
         http.request(req)
       end
 
