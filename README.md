@@ -10,7 +10,7 @@ StripeTester allows you to submit webhooks to your application without hitting S
 
 Add this line to your application's Gemfile:
 ```ruby
-gem 'stripe_tester', '~> 0.0.5'
+gem 'stripe_tester'
 ```
 And then execute:
 ```bash
@@ -33,7 +33,11 @@ In your test:
 
 1. Set the URL where the webhooks are handled:
 ```ruby
+    # Normal HTTP URL
     StripeTester.webhook_url = "http://www.example.com/my_post_url"
+
+    # HTTPS URL
+    StripeTester.webhook_url = "https://www.secure-example.com/my_post_url"
 ```
 
 2. If you want to specify which Stripe webhook API version you would like to use (the default will be the latest [supported version](https://github.com/buttercloud/stripe_tester#supported-stripe-webhook-api-versions)):
