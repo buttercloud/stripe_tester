@@ -149,7 +149,7 @@ Version 2013-08-13:
 
 ## License
 
-Copyright (c) 2013 ButterCloud LLC.
+Copyright (c) 2014 ButterCloud LLC.
 
 MIT License
 
