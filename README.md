@@ -10,7 +10,7 @@ StripeTester allows you to submit webhooks to your application without hitting S
 
 Add this line to your application's Gemfile:
 ```ruby
-gem 'stripe_tester', "~> 0.1.0"
+gem 'stripe_tester', "~> 0.1.1"
 ```
 And then execute:
 ```bash
