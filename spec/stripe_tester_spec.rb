@@ -81,7 +81,7 @@ describe StripeTester do
 
       response = StripeTester.post_to_url(data)
 
-      expect(response).to be_true
+      expect(response).to be_truthy
     end
 
     it "#post_to_url should raise an error when request fails" do
@@ -114,7 +114,7 @@ describe StripeTester do
 
       response = StripeTester.post_to_url(data)
 
-      expect(response).to be_true
+      expect(response).to be_truthy
     end
 
     it "#overwrite_attributes should overwrite attributes in default data to custom data" do
