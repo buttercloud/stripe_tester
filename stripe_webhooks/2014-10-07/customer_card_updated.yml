@@ -1,0 +1,32 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: customer.card.updated
+object: event
+request: 
+data:
+  object:
+    id: cc_00000000000000
+    object: card
+    last4: '4242'
+    brand: Visa
+    funding: credit
+    exp_month: 8
+    exp_year: 2014
+    fingerprint: TTKQdP1Omgi1czlY
+    country: US
+    name: 
+    address_line1: 
+    address_line2: 
+    address_city: 
+    address_state: 
+    address_zip: 
+    address_country: 
+    cvc_check: 
+    address_line1_check: 
+    address_zip_check: 
+    dynamic_last4: 
+    customer: 
+  previous_attributes:
+    exp_year: '2013'

@@ -1,0 +1,73 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: charge.refunded
+object: event
+request: 
+data:
+  object:
+    id: ch_00000000000000
+    object: charge
+    created: 1414767799
+    livemode: false
+    paid: true
+    amount: 100
+    currency: usd
+    refunded: true
+    card:
+      id: cc_00000000000000
+      object: card
+      last4: '4242'
+      brand: Visa
+      funding: credit
+      exp_month: 8
+      exp_year: 2014
+      fingerprint: TTKQdP1Omgi1czlY
+      country: US
+      name: 
+      address_line1: 
+      address_line2: 
+      address_city: 
+      address_state: 
+      address_zip: 
+      address_country: 
+      cvc_check: 
+      address_line1_check: 
+      address_zip_check: 
+      dynamic_last4: 
+      customer: 
+    captured: true
+    refunds:
+      object: list
+      total_count: 0
+      has_more: false
+      url: "/v1/charges/ch_53oYdFAXRVaoKR/refunds"
+      data:
+      - id: re_53oYhhAn1W1vSd
+        amount: 100
+        currency: usd
+        created: 1414767799
+        object: refund
+        balance_transaction: txn_53oYH9mtuGrbob
+        metadata: {}
+        charge: ch_53oYWk2OOuLmHE
+        receipt_number: 1249-3691
+        reason: 
+    balance_transaction: txn_00000000000000
+    failure_message: 
+    failure_code: 
+    amount_refunded: 100
+    customer: 
+    invoice: 
+    description: My First Test Charge (created for API docs)
+    dispute: 
+    metadata: {}
+    statement_description: 
+    fraud_details:
+      stripe_report: 
+      user_report: 
+    receipt_email: 
+    receipt_number: 
+    shipping: 
+    fee: 0

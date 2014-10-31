@@ -1,0 +1,33 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: customer.created
+object: event
+request: 
+data:
+  object:
+    object: customer
+    created: 1414767842
+    id: cus_00000000000000
+    livemode: false
+    description: 
+    email: 
+    delinquent: false
+    metadata: {}
+    subscriptions:
+      object: list
+      total_count: 0
+      has_more: false
+      url: "/v1/customers/cus_53oZviByh5zoV4/subscriptions"
+      data: []
+    discount: 
+    account_balance: 0
+    currency: usd
+    cards:
+      object: list
+      total_count: 0
+      has_more: false
+      url: "/v1/customers/cus_53oZviByh5zoV4/cards"
+      data: []
+    default_card: 
