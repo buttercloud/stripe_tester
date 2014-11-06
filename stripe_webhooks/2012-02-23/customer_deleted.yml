@@ -1,0 +1,38 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: customer.deleted
+object: event
+request: 
+data:
+  object:
+    object: customer
+    created: 1415277627
+    id: cus_00000000000000
+    livemode: false
+    description: 
+    email: 
+    delinquent: false
+    metadata: {}
+    subscriptions:
+      object: list
+      total_count: 0
+      has_more: false
+      url: "/v1/customers/cus_561cVhkZeHvOXs/subscriptions"
+      data: []
+      count: 0
+    discount: 
+    account_balance: 0
+    currency: usd
+    cards:
+      object: list
+      total_count: 0
+      has_more: false
+      url: "/v1/customers/cus_561cVhkZeHvOXs/cards"
+      data: []
+      count: 0
+    default_card: 
+    next_recurring_charge: 
+    active_card: 
+    subscription: 

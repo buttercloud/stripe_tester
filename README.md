@@ -169,12 +169,56 @@ Version 2013-07-05:
 * invoice.payment.succeeded
 * invoice.updated
 
+Version 2012-02-23:
+
+* account.updated
+* balance.available
+* charge.captured
+* charge.dispute.closed
+* charge.dispute.created
+* charge.dispute.updated
+* charge.failed
+* charge.refunded
+* charge.succeeded
+* charge.updated
+* coupon.created
+* coupon.deleted
+* customer.card.created
+* customer.card.deleted
+* customer.card.updated
+* customer.created
+* customer.deleted
+* customer.discount.created
+* customer.discount.deleted
+* customer.discount.updated
+* customer.subscription.created
+* customer.subscription.deleted
+* customer.subscription.trial.will.end
+* customer.subscription.updated
+* customer.updated
+* invoice.created
+* invoice.payment.failed
+* invoice.payment.succeeded
+* invoice.updated
+* invoiceitem.created
+* invoiceitem.deleted
+* invoiceitem.updated
+* plan.created
+* plan.deleted
+* plan.updated
+* transfer.created
+* transfer.failed
+* transfer.paid
+* transfer.updated
+
+
 ## Supported Stripe Webhook API Versions
 
 * 2014-10-07
 * 2013-08-13
 * 2013-07-05
 * 2013-02-13
+* 2012-02-23
 
 ## Contributing
 

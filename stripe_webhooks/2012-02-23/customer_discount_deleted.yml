@@ -1,0 +1,30 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: customer.discount.deleted
+object: event
+request: 
+data:
+  object:
+    coupon:
+      id: 25OFF_00000000000000
+      created: 1415277644
+      percent_off: 25
+      amount_off: 
+      currency: usd
+      object: coupon
+      livemode: false
+      duration: repeating
+      redeem_by: 
+      max_redemptions: 
+      times_redeemed: 0
+      duration_in_months: 3
+      valid: true
+      metadata: {}
+    start: 1415277644
+    object: discount
+    customer: cus_00000000000000
+    subscription: 
+    end: 1423226444
+    id: di_00000000000000
