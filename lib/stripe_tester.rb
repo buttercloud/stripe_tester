@@ -12,18 +12,9 @@ module StripeTester
   # There are two options you can use.  :method=>:overwrite, or :method=>:merge
   # Each will use a different way of merging the new attributes.
   def self.create_event(callback_type, attributes={}, options={method: :overwrite})
-    webhook_data = self.load_template(callback_type)
-
-    if webhook_data
-      unless attributes.empty?
-        if options[:method] == :merge
-          webhook_data = merge_attributes(webhook_data, attributes)
-        else
-          webhook_data = overwrite_attributes(webhook_data, attributes)
-        end
-      end
-      post_to_url(webhook_data)
-    end
+    webhook_data = self.load_template(callback_type, attributes, options)
+    
+    post_to_url(webhook_data) if webhook_data
   end
 
   # replace multiple values for multiple keys in a hash
@@ -94,7 +85,7 @@ module StripeTester
   end
 
   # load yaml with specified callback type
-  def self.load_template(callback_type)
+  def self.load_template(callback_type, attributes={}, options={method: :overwrite})
     spec = Gem::Specification.find_by_name("stripe_tester")
     gem_root = spec.gem_dir
     version = StripeTester.stripe_version
@@ -102,6 +93,16 @@ module StripeTester
     path = gem_root + "/stripe_webhooks/#{version}/#{callback_type}.yml"
     if File.exists?(path)
       template = Psych.load_file(path)
+
+      unless attributes.empty?
+        if options[:method] == :merge
+          template = merge_attributes(template, attributes)
+        else
+          template = overwrite_attributes(template, attributes)
+        end
+      end
+
+      return template
     else
       raise "Webhook not found. Please use a correct webhook type or correct Stripe version"
     end
