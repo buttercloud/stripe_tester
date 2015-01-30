@@ -69,6 +69,11 @@ StripeTester.create_event(:customer_subscription_created, {"data"=>{"object"=>{"
 json = StripeTester.load_template(:invoice_payment_failed)
 ```
 
+  You can also overwrite certain attributes in the JSON:
+```ruby
+json = StripeTester.load_template(:invoice_payment_failed, {"data"=>{"object"=>{"customer"=>"cus_MYCUSTOMERID"}}}, :method=>:merge)
+```
+
 ## Supported Webhooks 
 
 Version 2014-10-07:
