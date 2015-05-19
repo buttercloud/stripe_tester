@@ -76,12 +76,12 @@ json = StripeTester.load_template(:invoice_payment_failed, {"data"=>{"object"=>{
 
 ## Supported Stripe Webhook API Versions
 
-* 2015-04-07
-* 2014-10-07
-* 2013-08-13
-* 2013-07-05
-* 2013-02-13
-* 2012-02-23
+* [2015-04-07](https://github.com/buttercloud/stripe_tester/blob/master/supported_webhook_versions.md#version-2015-04-07)
+* [2014-10-07](https://github.com/buttercloud/stripe_tester/blob/master/supported_webhook_versions.md#version-2014-10-07)
+* [2013-08-13](https://github.com/buttercloud/stripe_tester/blob/master/supported_webhook_versions.md#version-2013-08-13)
+* [2013-07-05](https://github.com/buttercloud/stripe_tester/blob/master/supported_webhook_versions.md#version-2013-07-05)
+* [2013-02-13](https://github.com/buttercloud/stripe_tester/blob/master/supported_webhook_versions.md#version-2013-02-13)
+* [2012-02-23](https://github.com/buttercloud/stripe_tester/blob/master/supported_webhook_versions.md#version-2012-02-23)
 
 ## Contributing
 
