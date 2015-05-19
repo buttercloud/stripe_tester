@@ -99,7 +99,7 @@ json = StripeTester.load_template(:invoice_payment_failed, {"data"=>{"object"=>{
 
 ## License
 
-Copyright (c) 2014 ButterCloud LLC.
+Copyright (c) 2015 ButterCloud LLC.
 
 MIT License
 
