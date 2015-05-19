@@ -1,0 +1,76 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: charge.refunded
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-04-07'
+data:
+  object:
+    id: ch_00000000000000
+    object: charge
+    created: 1419171865
+    livemode: false
+    paid: true
+    status: succeeded
+    amount: 212
+    currency: usd
+    refunded: true
+    source:
+      id: card_00000000000000
+      object: card
+      last4: '4242'
+      brand: Visa
+      funding: credit
+      exp_month: 12
+      exp_year: 2017
+      country: US
+      name: Shit man
+      address_line1: 
+      address_line2: 
+      address_city: 
+      address_state: 
+      address_zip: 
+      address_country: 
+      cvc_check: pass
+      address_line1_check: 
+      address_zip_check: 
+      dynamic_last4: 
+      metadata: {}
+      customer: cus_00000000000000
+    captured: true
+    balance_transaction: txn_00000000000000
+    failure_message: 
+    failure_code: 
+    amount_refunded: 212
+    customer: cus_00000000000000
+    invoice: in_00000000000000
+    description: 
+    dispute: 
+    metadata: {}
+    statement_descriptor: 
+    fraud_details: {}
+    receipt_email: 
+    receipt_number: 
+    shipping: 
+    destination: 
+    application_fee: 
+    refunds:
+      object: list
+      total_count: 0
+      has_more: false
+      url: "/v1/charges/ch_5MuSnHsHswLrRL/refunds"
+      data:
+      - id: re_6GmVMMZ0jttx5B
+        amount: 212
+        currency: usd
+        created: 1432058153
+        object: refund
+        balance_transaction: txn_6GmVbjZsCsBG3p
+        metadata: {}
+        charge: ch_6GmV7I5KIpIraf
+        receipt_number: 1007-7915
+        reason: 
+    fee: 0

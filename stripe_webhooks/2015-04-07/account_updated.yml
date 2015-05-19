@@ -1,0 +1,86 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: account.updated
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-04-07'
+data:
+  object:
+    id: acct_00000000000000
+    email: test@stripe.com
+    statement_descriptor: TEST
+    display_name: 
+    timezone: Etc/UTC
+    details_submitted: true
+    charges_enabled: false
+    transfers_enabled: false
+    currencies_supported:
+    - usd
+    - aed
+    - afn
+    - "..."
+    default_currency: usd
+    country: US
+    object: account
+    business_name: 
+    business_url: 
+    support_phone: 
+    managed: false
+    product_description: 
+    debit_negative_balances: true
+    bank_accounts:
+      object: list
+      total_count: 0
+      has_more: false
+      url: "/v1/accounts/acct_27GvSMUrw6nMBU84mVCr/bank_accounts"
+      data: []
+    verification:
+      fields_needed:
+      - legal_entity.verification.document
+      due_by: 1432317240
+      contacted: false
+    transfer_schedule:
+      delay_days: 7
+      interval: daily
+    decline_charge_on:
+      cvc_failure: false
+      avs_failure: false
+    tos_acceptance:
+      ip: 
+      date: 
+      user_agent: 
+    legal_entity:
+      type: 
+      business_name: 
+      address:
+        line1: 
+        line2: 
+        city: 
+        state: 
+        postal_code: 
+        country: US
+      first_name: 
+      last_name: 
+      personal_address:
+        line1: 
+        line2: 
+        city: 
+        state: 
+        postal_code: 
+        country: 
+      dob:
+        day: 
+        month: 
+        year: 
+      additional_owners: 
+      verification:
+        status: unverified
+        document: 
+        details: 
+  previous_attributes:
+    verification:
+      fields_needed: []
+      due_by: 

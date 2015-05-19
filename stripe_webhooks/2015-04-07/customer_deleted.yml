@@ -1,0 +1,35 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: customer.deleted
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-04-07'
+data:
+  object:
+    object: customer
+    created: 1432058585
+    id: cus_00000000000000
+    livemode: false
+    description: 
+    email: 
+    delinquent: false
+    metadata: {}
+    subscriptions:
+      object: list
+      total_count: 0
+      has_more: false
+      url: "/v1/customers/cus_6GmcdpbjqLLrn8/subscriptions"
+      data: []
+    discount: 
+    account_balance: 0
+    currency: usd
+    sources:
+      object: list
+      total_count: 0
+      has_more: false
+      url: "/v1/customers/cus_6GmcdpbjqLLrn8/sources"
+      data: []
+    default_source: 
