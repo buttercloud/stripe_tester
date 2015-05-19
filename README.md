@@ -76,6 +76,7 @@ json = StripeTester.load_template(:invoice_payment_failed, {"data"=>{"object"=>{
 
 ## Supported Stripe Webhook API Versions
 
+* 2015-04-07
 * 2014-10-07
 * 2013-08-13
 * 2013-07-05
