@@ -6,7 +6,7 @@ require 'psych'
 
 module StripeTester
 
-  LATEST_STRIPE_VERSION = "2015-04-07"
+  LATEST_STRIPE_VERSION = "2015-10-01"
 
   # send the url the webhook event
   # There are two options you can use.  :method=>:overwrite, or :method=>:merge

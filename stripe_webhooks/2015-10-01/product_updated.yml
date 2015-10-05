@@ -1,0 +1,35 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: product.updated
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-10-01'
+data:
+  object:
+    id: prod_00000000000000
+    created: 1444032239
+    updated: 1444032239
+    object: product
+    livemode: false
+    name: T-shirt
+    caption: 
+    description: Comfortable gray cotton t-shirts
+    active: true
+    attributes:
+    - size
+    - gender
+    shippable: true
+    metadata: {}
+    url: 
+    package_dimensions: 
+    images: []
+    skus:
+      object: list
+      total_count: 0
+      has_more: false
+      url: "/v1/skus?product=prod_76hL7nJnaotQqW&active=true"
+      data: []
+  previous_attributes: 

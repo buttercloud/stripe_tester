@@ -1,0 +1,85 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: charge.dispute.updated
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-10-01'
+data:
+  object:
+    id: dp_00000000000000
+    charge: ch_00000000000000
+    amount: 1000
+    created: 1444032135
+    status: under_review
+    livemode: false
+    currency: usd
+    object: dispute
+    reason: general
+    is_charge_refundable: false
+    balance_transactions: []
+    evidence_details:
+      due_by: 1445731199
+      past_due: false
+      has_evidence: false
+      submission_count: 0
+    evidence:
+      product_description: 
+      customer_name: 
+      customer_email_address: 
+      customer_purchase_ip: 
+      customer_signature: 
+      billing_address: 
+      receipt: 
+      shipping_address: 
+      shipping_date: 
+      shipping_carrier: 
+      shipping_tracking_number: 
+      shipping_documentation: 
+      access_activity_log: 
+      service_date: 
+      service_documentation: 
+      duplicate_charge_id: 
+      duplicate_charge_explanation: 
+      duplicate_charge_documentation: 
+      refund_policy: 
+      refund_policy_disclosure: 
+      refund_refusal_explanation: 
+      cancellation_policy: 
+      cancellation_policy_disclosure: 
+      cancellation_rebuttal: 
+      customer_communication: 
+      uncategorized_text: Here is some evidence
+      uncategorized_file: 
+    metadata: {}
+  previous_attributes:
+    evidence:
+      product_description: 
+      customer_name: 
+      customer_email_address: 
+      customer_purchase_ip: 
+      customer_signature: 
+      billing_address: 
+      receipt: 
+      shipping_address: 
+      shipping_date: 
+      shipping_carrier: 
+      shipping_tracking_number: 
+      shipping_documentation: 
+      access_activity_log: 
+      service_date: 
+      service_documentation: 
+      duplicate_charge_id: 
+      duplicate_charge_explanation: 
+      duplicate_charge_documentation: 
+      refund_policy: 
+      refund_policy_disclosure: 
+      refund_refusal_explanation: 
+      cancellation_policy: 
+      cancellation_policy_disclosure: 
+      cancellation_rebuttal: 
+      customer_communication: 
+      uncategorized_text: Old uncategorized text
+      uncategorized_file: 

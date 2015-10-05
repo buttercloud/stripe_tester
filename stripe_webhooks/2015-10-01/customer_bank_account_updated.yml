@@ -1,0 +1,24 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: customer.bank_account.updated
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-10-01'
+data:
+  object:
+    object: bank_account
+    id: ba_00000000000000
+    last4: '6789'
+    country: US
+    currency: usd
+    status: new
+    fingerprint: BoBS64BqvgqBDUKQ
+    routing_number: '110000000'
+    bank_name: STRIPE TEST BANK
+    account: acct_00000000000000
+    default_for_currency: false
+    metadata: {}
+  previous_attributes: 

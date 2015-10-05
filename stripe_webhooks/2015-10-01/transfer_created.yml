@@ -1,0 +1,38 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: transfer.created
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-10-01'
+data:
+  object:
+    id: tr_00000000000000
+    object: transfer
+    created: 1419558754
+    date: 1419724800
+    livemode: false
+    amount: 176
+    currency: usd
+    reversed: false
+    status: pending
+    type: bank_account
+    reversals:
+      object: list
+      total_count: 0
+      has_more: false
+      url: "/v1/transfers/tr_5OaSQEul366zPx/reversals"
+      data: []
+    balance_transaction: txn_00000000000000
+    destination: 
+    description: STRIPE TRANSFER
+    failure_message: 
+    failure_code: 
+    amount_reversed: 0
+    metadata: {}
+    statement_descriptor: 
+    recipient: 
+    source_transaction: 
+    application_fee: 

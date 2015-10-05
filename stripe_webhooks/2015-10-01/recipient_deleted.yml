@@ -1,0 +1,30 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: recipient.deleted
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-10-01'
+data:
+  object:
+    id: rp_00000000000000
+    object: recipient
+    created: 1444032245
+    livemode: false
+    type: individual
+    description: Recipient for John Doe
+    email: test@example.com
+    name: John Doe
+    verified: false
+    metadata: {}
+    active_account: 
+    cards:
+      object: list
+      total_count: 0
+      has_more: false
+      url: "/v1/recipients/rp_76hLqtHxAYUEcD/cards"
+      data: []
+    default_card: 
+    migrated_to: 
