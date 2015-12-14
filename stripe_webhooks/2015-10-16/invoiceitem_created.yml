@@ -1,0 +1,29 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: invoiceitem.created
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-10-16'
+data:
+  object:
+    id: ii_00000000000000
+    object: invoiceitem
+    amount: 1000
+    currency: usd
+    customer: cus_00000000000000
+    date: 1450089200
+    description: My First Invoice Item (created for API docs)
+    discountable: true
+    invoice: 
+    livemode: false
+    metadata: {}
+    period:
+      start: 1450089200
+      end: 1450089200
+    plan: 
+    proration: false
+    quantity: 
+    subscription: 

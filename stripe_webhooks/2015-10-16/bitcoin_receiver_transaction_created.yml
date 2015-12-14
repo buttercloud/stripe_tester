@@ -1,0 +1,18 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: bitcoin.receiver.transaction.created
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-10-16'
+data:
+  object:
+    id: btctxn_00000000000000
+    object: bitcoin_transaction
+    amount: 2000
+    bitcoin_amount: 20000000
+    created: 1450089083
+    currency: usd
+    receiver: btcrcv_17HVlw2eZvKYlo2COTH4sLs2

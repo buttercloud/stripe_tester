@@ -1,0 +1,19 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: balance.available
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-10-16'
+data:
+  object:
+    object: balance
+    available:
+    - amount: 0
+      currency: usd
+    livemode: false
+    pending:
+    - amount: 0
+      currency: usd

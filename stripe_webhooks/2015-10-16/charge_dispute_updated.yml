@@ -1,0 +1,85 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: charge.dispute.updated
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-10-16'
+data:
+  object:
+    id: dp_00000000000000
+    object: dispute
+    amount: 1000
+    balance_transactions: []
+    charge: ch_00000000000000
+    created: 1450089113
+    currency: usd
+    evidence:
+      access_activity_log: 
+      billing_address: 
+      cancellation_policy: 
+      cancellation_policy_disclosure: 
+      cancellation_rebuttal: 
+      customer_communication: 
+      customer_email_address: 
+      customer_name: 
+      customer_purchase_ip: 
+      customer_signature: 
+      duplicate_charge_documentation: 
+      duplicate_charge_explanation: 
+      duplicate_charge_id: 
+      product_description: 
+      receipt: 
+      refund_policy: 
+      refund_policy_disclosure: 
+      refund_refusal_explanation: 
+      service_date: 
+      service_documentation: 
+      shipping_address: 
+      shipping_carrier: 
+      shipping_date: 
+      shipping_documentation: 
+      shipping_tracking_number: 
+      uncategorized_file: 
+      uncategorized_text: Here is some evidence
+    evidence_details:
+      due_by: 1451779199
+      has_evidence: false
+      past_due: false
+      submission_count: 0
+    is_charge_refundable: false
+    livemode: false
+    metadata: {}
+    reason: general
+    status: under_review
+  previous_attributes:
+    evidence:
+      access_activity_log: 
+      billing_address: 
+      cancellation_policy: 
+      cancellation_policy_disclosure: 
+      cancellation_rebuttal: 
+      customer_communication: 
+      customer_email_address: 
+      customer_name: 
+      customer_purchase_ip: 
+      customer_signature: 
+      duplicate_charge_documentation: 
+      duplicate_charge_explanation: 
+      duplicate_charge_id: 
+      product_description: 
+      receipt: 
+      refund_policy: 
+      refund_policy_disclosure: 
+      refund_refusal_explanation: 
+      service_date: 
+      service_documentation: 
+      shipping_address: 
+      shipping_carrier: 
+      shipping_date: 
+      shipping_documentation: 
+      shipping_tracking_number: 
+      uncategorized_file: 
+      uncategorized_text: Old uncategorized text

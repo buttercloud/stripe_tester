@@ -1,0 +1,90 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: account.updated
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-10-16'
+data:
+  object:
+    id: acct_00000000000000
+    object: account
+    business_logo: 
+    business_name: 
+    business_url: 
+    charges_enabled: false
+    country: US
+    currencies_supported:
+    - usd
+    - aed
+    - afn
+    - "..."
+    debit_negative_balances: true
+    decline_charge_on:
+      avs_failure: false
+      cvc_failure: false
+    default_currency: usd
+    details_submitted: true
+    display_name: 
+    email: test@stripe.com
+    external_accounts:
+      object: list
+      data: []
+      has_more: false
+      total_count: 0
+      url: "/v1/accounts/acct_27GvSMUrw6nMBU84mVCr/external_accounts"
+    legal_entity:
+      additional_owners: 
+      address:
+        city: 
+        country: US
+        line1: 
+        line2: 
+        postal_code: 
+        state: 
+      business_name: 
+      dob:
+        day: 
+        month: 
+        year: 
+      first_name: 
+      last_name: 
+      personal_address:
+        city: 
+        country: 
+        line1: 
+        line2: 
+        postal_code: 
+        state: 
+      personal_id_number_provided: false
+      ssn_last_4_provided: false
+      type: 
+      verification:
+        details: 
+        details_code: failed_other
+        document: 
+        status: unverified
+    managed: false
+    product_description: 
+    statement_descriptor: TEST
+    support_phone: 
+    timezone: Etc/UTC
+    tos_acceptance:
+      date: 
+      ip: 
+      user_agent: 
+    transfer_schedule:
+      delay_days: 7
+      interval: daily
+    transfers_enabled: false
+    verification:
+      disabled_reason: fields_needed
+      due_by: 1450348258
+      fields_needed:
+      - legal_entity.verification.document
+  previous_attributes:
+    verification:
+      fields_needed: []
+      due_by: 

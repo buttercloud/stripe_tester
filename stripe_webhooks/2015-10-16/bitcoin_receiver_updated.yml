@@ -1,0 +1,31 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: bitcoin.receiver.updated
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-10-16'
+data:
+  object:
+    id: btcrcv_00000000000000
+    object: bitcoin_receiver
+    active: false
+    amount: 100
+    amount_received: 0
+    bitcoin_amount: 1757908
+    bitcoin_amount_received: 0
+    bitcoin_uri: bitcoin:test_7i9Fo4b5wXcUAuoVBFrc7nc9HDxD1?amount=0.01757908
+    created: 1450089079
+    currency: usd
+    description: Receiver for John Doe
+    email: test@example.com
+    filled: false
+    inbound_address: test_7i9Fo4b5wXcUAuoVBFrc7nc9HDxD1
+    livemode: false
+    metadata: {}
+    refund_address: 
+    uncaptured_funds: false
+    used_for_payment: false
+  previous_attributes: 

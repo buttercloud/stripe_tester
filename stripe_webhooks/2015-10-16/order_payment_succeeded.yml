@@ -1,0 +1,45 @@
+---
+created: 1326853478
+livemode: false
+id: evt_00000000000000
+type: order.payment_succeeded
+object: event
+request: 
+pending_webhooks: 1
+api_version: '2015-10-16'
+data:
+  object:
+    id: or_00000000000000
+    object: order
+    amount: 1500
+    application: 
+    application_fee: 
+    charge: 
+    created: 1450089218
+    currency: usd
+    customer: 
+    email: 
+    items:
+    - object: order_item
+      amount: 1500
+      currency: usd
+      description: T-shirt
+      parent: sk_76hLngh4vvAVrA
+      quantity: 
+      type: sku
+    livemode: false
+    metadata: {}
+    selected_shipping_method: 
+    shipping:
+      address:
+        city: Anytown
+        country: US
+        line1: 1234 Main street
+        line2: 
+        postal_code: '123456'
+        state: 
+      name: Jenny Rosen
+      phone: 
+    shipping_methods: 
+    status: created
+    updated: 1450089218
