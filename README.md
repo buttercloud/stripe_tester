@@ -42,14 +42,14 @@ In your test:
 
 2. If you want to specify which Stripe webhook API version you would like to use (the default will be the latest [supported version](https://github.com/buttercloud/stripe_tester#supported-stripe-webhook-api-versions)):
 ```ruby
-    StripeTester.stripe_version = "2013-09-08"
+    StripeTester.stripe_version = "2015-10-16"
 ```
 
 3. Send the webhook. This will send a POST request to the URL with the event data as JSON:
 ```ruby
     # as a symbol
     StripeTester.create_event(:invoice_created)
-        
+
     # or as a string
     StripeTester.create_event("invoice_created")
 ```
@@ -76,6 +76,8 @@ json = StripeTester.load_template(:invoice_payment_failed, {"data"=>{"object"=>{
 
 ## Supported Stripe Webhook API Versions
 
+* [2015-10-16](https://github.com/buttercloud/stripe_tester/blob/master/supported_webhook_versions.md#version-2015-10-16)
+* [2015-10-01](https://github.com/buttercloud/stripe_tester/blob/master/supported_webhook_versions.md#version-2015-10-01)
 * [2015-04-07](https://github.com/buttercloud/stripe_tester/blob/master/supported_webhook_versions.md#version-2015-04-07)
 * [2014-10-07](https://github.com/buttercloud/stripe_tester/blob/master/supported_webhook_versions.md#version-2014-10-07)
 * [2013-08-13](https://github.com/buttercloud/stripe_tester/blob/master/supported_webhook_versions.md#version-2013-08-13)
@@ -90,7 +92,7 @@ json = StripeTester.load_template(:invoice_payment_failed, {"data"=>{"object"=>{
 * Add your changes, and add a test for the changes.
 * Run tests using
 
-```bash 
+```bash
   $ rspec spec
 ```
 * Make sure everything is passing
