@@ -4,7 +4,7 @@ describe StripeTester do
 
   describe "instance methods" do
 
-    LATEST_STRIPE_VERSION = "2015-10-01"
+    LATEST_STRIPE_VERSION = "2015-10-16"
 
     before(:each) do
       StripeTester.remove_url
@@ -74,9 +74,9 @@ describe StripeTester do
       url = "http://localhost:3000/transactions"
       StripeTester.webhook_url = url
 
-      FakeWeb.register_uri(:post, 
-                           url, 
-                           body: data.to_json, 
+      FakeWeb.register_uri(:post,
+                           url,
+                           body: data.to_json,
                            content_type: 'application/json')
 
       response = StripeTester.post_to_url(data)
@@ -89,9 +89,9 @@ describe StripeTester do
       url = "http://localhost:3000/"
       StripeTester.webhook_url = url
 
-      FakeWeb.register_uri(:post, 
-                           url, 
-                           body: data.to_json, 
+      FakeWeb.register_uri(:post,
+                           url,
+                           body: data.to_json,
                            content_type: 'application/json',
                            status: ["404", "Not Found"])
 
@@ -107,9 +107,9 @@ describe StripeTester do
       url = "https://localhost:3000/pathname"
       StripeTester.webhook_url = url
 
-      FakeWeb.register_uri(:post, 
-                           url, 
-                           body: data.to_json, 
+      FakeWeb.register_uri(:post,
+                           url,
+                           body: data.to_json,
                            content_type: 'application/json')
 
       response = StripeTester.post_to_url(data)

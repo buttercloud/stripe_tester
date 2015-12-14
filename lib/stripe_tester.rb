@@ -6,14 +6,14 @@ require 'psych'
 
 module StripeTester
 
-  LATEST_STRIPE_VERSION = "2015-10-01"
+  LATEST_STRIPE_VERSION = "2015-10-16"
 
   # send the url the webhook event
   # There are two options you can use.  :method=>:overwrite, or :method=>:merge
   # Each will use a different way of merging the new attributes.
   def self.create_event(callback_type, attributes={}, options={method: :overwrite})
     webhook_data = self.load_template(callback_type, attributes, options)
-    
+
     post_to_url(webhook_data) if webhook_data
   end
 
