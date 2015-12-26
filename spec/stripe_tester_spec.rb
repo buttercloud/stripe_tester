@@ -12,6 +12,7 @@ describe StripeTester do
 
     after(:each) do
       StripeTester.stripe_version = nil
+      StripeTester.verify_ssl = nil
     end
 
     it "#load_template should return hash" do
@@ -54,6 +55,19 @@ describe StripeTester do
 
       result_url = StripeTester.webhook_url
       expect(result_url.to_s).to eq(url)
+    end
+
+    it "#verify_ssl should default to true" do
+      result_verify = StripeTester.verify_ssl?
+      expect(result_verify).to eq(true)
+    end
+
+    it "#verify_ssl should set the verify_ssl flag" do
+      verify = false
+      StripeTester.verify_ssl = verify
+
+      result_verify = StripeTester.verify_ssl?
+      expect(result_verify).to eq(false)
     end
 
     it "#webhook_url should store url as and URI object" do
@@ -106,6 +120,23 @@ describe StripeTester do
       data = StripeTester.load_template(:invoice_created)
       url = "https://localhost:3000/pathname"
       StripeTester.webhook_url = url
+
+      FakeWeb.register_uri(:post,
+                           url,
+                           body: data.to_json,
+                           content_type: 'application/json')
+
+      response = StripeTester.post_to_url(data)
+
+      expect(response).to be_truthy
+    end
+
+    it "#post_to_url should support HTTPS without SSL verification" do
+      data = StripeTester.load_template(:invoice_created)
+      url = "https://localhost:3000/pathname"
+      verify = false
+      StripeTester.webhook_url = url
+      StripeTester.verify_ssl = verify
 
       FakeWeb.register_uri(:post,
                            url,
