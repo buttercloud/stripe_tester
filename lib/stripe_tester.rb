@@ -67,6 +67,7 @@ module StripeTester
 
       http_object = Net::HTTP.new(post_url.hostname, post_url.port)
       http_object.use_ssl = true if post_url.scheme == 'https'
+      http_object.verify_mode = OpenSSL::SSL::VERIFY_NONE if (!verify_ssl? && http_object.use_ssl?)
 
       # send request
       res = http_object.start do |http|
@@ -74,10 +75,10 @@ module StripeTester
       end
 
       case res
-      when Net::HTTPSuccess, Net::HTTPRedirection
-        true
-      else
-        res.value
+        when Net::HTTPSuccess, Net::HTTPRedirection
+          true
+        else
+          res.value
       end
     else
       raise "Could not post to URL. Please set URL."
@@ -131,4 +132,13 @@ module StripeTester
   def self.stripe_version
     @version ? @version : LATEST_STRIPE_VERSION
   end
+
+  def self.verify_ssl=(verify)
+    @verify_ssl = verify
+  end
+
+  def self.verify_ssl?
+    (defined? @verify_ssl) ? @verify_ssl : true
+  end
+
 end
