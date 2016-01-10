@@ -74,6 +74,11 @@ json = StripeTester.load_template(:invoice_payment_failed)
 json = StripeTester.load_template(:invoice_payment_failed, {"data"=>{"object"=>{"customer"=>"cus_MYCUSTOMERID"}}}, :method=>:merge)
 ```
 
+  For testing an endpoint, secured with a self-signed SSL certificate, disable SSL verification with the following line of code:
+```ruby
+StripeTester.verify_ssl = false
+```
+
 ## Supported Stripe Webhook API Versions
 
 * [2015-10-16](https://github.com/buttercloud/stripe_tester/blob/master/supported_webhook_versions.md#version-2015-10-16)
