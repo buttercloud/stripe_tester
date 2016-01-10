@@ -138,7 +138,7 @@ module StripeTester
   end
 
   def self.verify_ssl?
-    (defined? @verify_ssl) && !@verify_ssl.nil? ? @verify_ssl : true
+    !@verify_ssl.nil? ? @verify_ssl : true
   end
 
 end

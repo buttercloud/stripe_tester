@@ -66,8 +66,7 @@ describe StripeTester do
       verify = false
       StripeTester.verify_ssl = verify
 
-      result_verify = StripeTester.verify_ssl?
-      expect(result_verify).to eq(false)
+      expect(StripeTester.verify_ssl?).to eq(verify)
     end
 
     it "#webhook_url should store url as and URI object" do
