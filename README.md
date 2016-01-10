@@ -42,7 +42,7 @@ In your test:
 
 2. If your URL is secured with a self-signed SSL certificate, disable SSL verification:
 ```ruby
-StripeTester.verify_ssl = false
+    StripeTester.verify_ssl = false
 ```
 
 3. If you want to specify which Stripe webhook API version you would like to use (the default will be the latest [supported version](https://github.com/buttercloud/stripe_tester#supported-stripe-webhook-api-versions)):
