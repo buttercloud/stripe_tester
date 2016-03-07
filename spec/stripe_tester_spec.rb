@@ -15,26 +15,44 @@ describe StripeTester do
       StripeTester.verify_ssl = nil
     end
 
-    it "#load_template should return hash" do
-      result = StripeTester.load_template(:invoice_created)
+    describe "#load_template" do
+      it "should return hash" do
+        result = StripeTester.load_template(:invoice_created)
 
-      expect(result).to be_a_kind_of(Hash)
-    end
+        expect(result).to be_a_kind_of(Hash)
+      end
+    
+      context "Hash with_indifferent_access supported" do
+        it "should call with_indifferent_access on Hash" do
+          allow_any_instance_of(Hash).to receive(:with_indifferent_access)
+          expect_any_instance_of(Hash).to receive(:with_indifferent_access)
+          StripeTester.load_template(:invoice_created)
+        end
+      end
+    
+      context "Hash with_indifferent_access not supported" do
+        it "should not call with_indifferent_access" do
+          allow_any_instance_of(Hash).to receive(:respond_to?).and_return(false)
+          expect_any_instance_of(Hash).not_to receive(:with_indifferent_access)
+          StripeTester.load_template(:invoice_created)
+        end
+      end
+    
+      it "should return correct callback type" do
+        type = "invoice_created"
 
-    it "#load_template should return correct callback type" do
-      type = "invoice_created"
+        returned_hash = StripeTester.load_template(type)
+        returned_type = returned_hash["type"]
 
-      returned_hash = StripeTester.load_template(type)
-      returned_type = returned_hash["type"]
+        returned_type.sub!('.', '_')
 
-      returned_type.sub!('.', '_')
+        expect(returned_type).to eq(type)
+      end
 
-      expect(returned_type).to eq(type)
-    end
-
-    it "#load_template should raise an exception when invalid event is given" do
-      type = "incorrect_type"
-      expect { StripeTester.load_template(type) }.to raise_error("Webhook not found. Please use a correct webhook type or correct Stripe version")
+      it "should raise an exception when invalid event is given" do
+        type = "incorrect_type"
+        expect { StripeTester.load_template(type) }.to raise_error("Webhook not found. Please use a correct webhook type or correct Stripe version")
+      end
     end
 
     it "#stripe_version should set the correct stripe version" do
@@ -146,24 +164,42 @@ describe StripeTester do
       expect(response).to be_truthy
     end
 
-    it "#overwrite_attributes should overwrite attributes in default data to custom data" do
-      original_data = {name: 'john smith', info: {age: 45, gender: 'male'}}
-      overwrite_data = {name: 'smith john', age: 99}
+    describe "#overwrite_attributes" do
+      it "should overwrite attributes in default data to custom data" do
+        original_data = {name: 'john smith', info: {age: 45, gender: 'male'}}
+        overwrite_data = {name: 'smith john', age: 99}
 
-      new_data = StripeTester.overwrite_attributes(original_data, overwrite_data)
+        new_data = StripeTester.overwrite_attributes(original_data, overwrite_data)
 
-      expect(new_data[:name]).to eq(overwrite_data[:name])
-      expect(new_data[:info][:age]).to eq(overwrite_data[:age])
+        expect(new_data[:name]).to eq(overwrite_data[:name])
+        expect(new_data[:info][:age]).to eq(overwrite_data[:age])
+      end
+
+      it "should return an unmodified hash when options don't exist" do
+        original_data = {name: 'john smith', info: {age: 45, gender: 'male'}}
+
+        new_data = StripeTester.overwrite_attributes(original_data)
+
+        expect(new_data).to eq(original_data)
+      end
+      
+      context "Hash with_indifferent_access supported" do
+        it "should call with_indifferent_access on Hash" do
+          allow_any_instance_of(Hash).to receive(:with_indifferent_access).and_return({})
+          expect_any_instance_of(Hash).to receive(:with_indifferent_access)
+          StripeTester.overwrite_attributes({}, {})
+        end
+      end
+    
+      context "Hash with_indifferent_access not supported" do
+        it "should not call with_indifferent_access" do
+          allow_any_instance_of(Hash).to receive(:respond_to?).and_return(false)
+          expect_any_instance_of(Hash).not_to receive(:with_indifferent_access)
+          StripeTester.overwrite_attributes({}, {})
+        end
+      end
     end
-
-    it "#overwrite_attributes should return an unmodified hash when options don't exist" do
-      original_data = {name: 'john smith', info: {age: 45, gender: 'male'}}
-
-      new_data = StripeTester.overwrite_attributes(original_data)
-
-      expect(new_data).to eq(original_data)
-    end
-
+    
     it "#replace_value should replace a value of a given key in the hash" do
       original_data = {name: 'john smith', info: {age: 45, gender: 'male'}}
 
@@ -172,22 +208,41 @@ describe StripeTester do
       expect(new_data[:info][:age]).to eq(99)
     end
 
-    it "#merge_attributes should do a deep merge" do
-      original_data = {name: 'john smith',
-                       info: {age: 45,
-                              gender: 'male',
-                              occupation: {title: 'Software Developer',
-                                           employer: 'ACME, Inc'},
-                              address: {street: '123 Fake St',
-                                        city: 'Somewhere',
-                                        state: 'NC',
-                                        zip: '12345'}}}
-      new_data = StripeTester.merge_attributes(original_data, {name: 'jane smith', info: {gender: 'female', address: {city: 'Springfield'}}})
-      expect(new_data[:name]).to eq('jane smith')
-      expect(new_data[:info][:gender]).to eq('female')
-      expect(new_data[:info][:age]).to eq(45)
-      expect(new_data[:info][:address][:city]).to eq('Springfield')
-      expect(new_data[:info][:address][:state]).to eq('NC')
+    describe "#merge_attributes" do
+      it "should do a deep merge" do
+        original_data = {name: 'john smith',
+                         info: {age: 45,
+                                gender: 'male',
+                                occupation: {title: 'Software Developer',
+                                             employer: 'ACME, Inc'},
+                                address: {street: '123 Fake St',
+                                          city: 'Somewhere',
+                                          state: 'NC',
+                                          zip: '12345'}}}
+        new_data = StripeTester.merge_attributes(original_data, {name: 'jane smith', info: {gender: 'female', address: {city: 'Springfield'}}})
+        expect(new_data[:name]).to eq('jane smith')
+        expect(new_data[:info][:gender]).to eq('female')
+        expect(new_data[:info][:age]).to eq(45)
+        expect(new_data[:info][:address][:city]).to eq('Springfield')
+        expect(new_data[:info][:address][:state]).to eq('NC')
+      end
+    
+      context "Hash with_indifferent_access supported" do
+        it "should call with_indifferent_access on Hash" do
+          allow_any_instance_of(Hash).to receive(:with_indifferent_access).and_return({})
+          expect_any_instance_of(Hash).to receive(:with_indifferent_access)
+          StripeTester.merge_attributes({}, {})
+        end
+      end
+    
+      context "Hash with_indifferent_access not supported" do
+        it "should not call with_indifferent_access" do
+          allow_any_instance_of(Hash).to receive(:respond_to?).and_return(false)
+          expect_any_instance_of(Hash).not_to receive(:with_indifferent_access)
+          StripeTester.merge_attributes({}, {})
+        end
+      end
     end
+
   end
 end

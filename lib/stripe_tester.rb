@@ -21,7 +21,7 @@ module StripeTester
   def self.overwrite_attributes(original_data, attributes={})
     data = original_data.clone
     if attributes
-      attributes.each do |k,v|
+      indifferent(attributes).each do |k,v|
         replace_value(data, k, v)
       end
     end
@@ -45,7 +45,7 @@ module StripeTester
   def self.merge_attributes(original_attributes, new_attributes={})
     original_attributes = original_attributes.clone
     if new_attributes
-      new_attributes.each do |key, value|
+      indifferent(new_attributes).each do |key, value|
         if value.is_a?(Hash) && original_attributes[key].is_a?(Hash)
           original_attributes[key] = self.merge_attributes original_attributes[key], value
         else
@@ -93,8 +93,8 @@ module StripeTester
 
     path = gem_root + "/stripe_webhooks/#{version}/#{callback_type}.yml"
     if File.exists?(path)
-      template = Psych.load_file(path)
-
+      template = indifferent(Psych.load_file(path))
+      
       unless attributes.empty?
         if options[:method] == :merge
           template = merge_attributes(template, attributes)
@@ -139,6 +139,16 @@ module StripeTester
 
   def self.verify_ssl?
     !@verify_ssl.nil? ? @verify_ssl : true
+  end
+  
+  private
+  
+  def self.indifferent(obj)
+    if obj.is_a?(Hash) && obj.respond_to?(:with_indifferent_access)
+      obj.with_indifferent_access
+    else
+      obj
+    end
   end
 
 end
