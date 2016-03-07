@@ -34,8 +34,7 @@ describe StripeTester do
 
     it "#load_template should raise an exception when invalid event is given" do
       type = "incorrect_type"
-
-      expect { StripeTester.load_template(type) }.to raise_error
+      expect { StripeTester.load_template(type) }.to raise_error("Webhook not found. Please use a correct webhook type or correct Stripe version")
     end
 
     it "#stripe_version should set the correct stripe version" do
@@ -112,7 +111,7 @@ describe StripeTester do
     end
 
     it "#post_to_url should raise an error if webhook URL is not set" do
-      expect { StripeTester.post_to_url() }.to raise_error
+      expect { StripeTester.post_to_url() }.to raise_error("Could not post to URL. Please set URL.")
     end
 
     it "#post_to_url should support HTTPS requests" do
