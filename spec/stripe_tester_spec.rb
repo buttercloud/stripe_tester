@@ -114,6 +114,37 @@ describe StripeTester do
       expect(response).to be_truthy
     end
 
+    it "#post_to_url should return true when authentication is provided" do
+      data = StripeTester.load_template(:invoice_created)
+      url = "http://localhost:3000/transactions"
+      StripeTester.webhook_url = url
+      StripeTester.webhook_password='password'
+
+      FakeWeb.register_uri(:post,
+                           url,
+                           body: data.to_json,
+                           content_type: 'application/json')
+
+      response = StripeTester.post_to_url(data)
+
+      expect(response).to be_truthy
+    end
+
+    it "#post_to_url should return true when authentication is provided through url" do
+      data = StripeTester.load_template(:invoice_created)
+      url = "http://stripe:password@localhost:3000/transactions"
+      StripeTester.webhook_url = url
+
+      FakeWeb.register_uri(:post,
+                           url,
+                           body: data.to_json,
+                           content_type: 'application/json')
+
+      response = StripeTester.post_to_url(data)
+
+      expect(response).to be_truthy
+    end
+
     it "#post_to_url should raise an error when request fails" do
       data = StripeTester.load_template(:invoice_created)
       url = "http://localhost:3000/"

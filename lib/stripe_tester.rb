@@ -61,7 +61,7 @@ module StripeTester
   end
 
   def self.password_verification_required?( post_url )
-    @webhook_password.present? or !post_url.password.blank?
+    @webhook_password or post_url.password
   end
 
   def self.post_to_url(data={})
