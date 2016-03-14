@@ -50,7 +50,19 @@ In your test:
     StripeTester.stripe_version = "2015-10-16"
 ```
 
-4. Send the webhook. This will send a POST request to the URL with the event data as JSON:
+4. If you are using username and password in your stripe webhook event, you can provide it in two ways.
+```ruby
+    StripeTester.webhook_passord = "<password>"
+    or
+    you can set it in your webhook_url itself like this
+    # Normal HTTP URL
+    StripeTester.webhook_url = "http://stripe:password@www.example.com/my_post_url"
+
+    # HTTPS URL
+    StripeTester.webhook_url = "https://stripe:password@www.secure-example.com/my_post_url"
+```
+
+5. Send the webhook. This will send a POST request to the URL with the event data as JSON:
 ```ruby
     # as a symbol
     StripeTester.create_event(:invoice_created)

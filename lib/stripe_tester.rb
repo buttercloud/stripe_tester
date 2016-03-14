@@ -56,6 +56,14 @@ module StripeTester
     original_attributes
   end
 
+  def self.authentication_password( post_url )
+    @webhook_password ? @webhook_password : post_url.password
+  end
+
+  def self.password_verification_required?( post_url )
+    @webhook_password or post_url.password
+  end
+
   def self.post_to_url(data={})
     post_url = webhook_url
 
@@ -64,6 +72,9 @@ module StripeTester
       req = Net::HTTP::Post.new(post_url.path)
       req.content_type = 'application/json'
       req.body = data.to_json
+      if password_verification_required?( post_url )
+        req.basic_auth 'stripe', authentication_password(post_url)
+      end
 
       http_object = Net::HTTP.new(post_url.hostname, post_url.port)
       http_object.use_ssl = true if post_url.scheme == 'https'
@@ -123,6 +134,14 @@ module StripeTester
 
   def self.remove_url
     @url = nil
+  end
+
+  def self.webhook_password=(webhook_password)
+    @webhook_password = webhook_password
+  end
+
+  def self.webhook_password
+    @webhook_password ? @webhook_password : nil
   end
 
   def self.stripe_version=(version)
