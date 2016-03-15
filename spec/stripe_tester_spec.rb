@@ -13,6 +13,7 @@ describe StripeTester do
     after(:each) do
       StripeTester.stripe_version = nil
       StripeTester.verify_ssl = nil
+      StripeTester.webhook_password = nil
     end
 
     it "#load_template should return hash" do
@@ -117,11 +118,12 @@ describe StripeTester do
     it "#post_to_url should return true when authentication is provided" do
       data = StripeTester.load_template(:invoice_created)
       url = "http://localhost:3000/transactions"
+      fake_web_url = "http://stripe:password@localhost:3000/transactions"
       StripeTester.webhook_url = url
       StripeTester.webhook_password='password'
 
       FakeWeb.register_uri(:post,
-                           url,
+                           fake_web_url,
                            body: data.to_json,
                            content_type: 'application/json')
 
