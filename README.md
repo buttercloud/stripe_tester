@@ -52,7 +52,7 @@ In your test:
 
 4. If you are using username and password in your stripe webhook event, you can provide it in two ways.
 ```ruby
-    StripeTester.webhook_passord = "<password>"
+    StripeTester.webhook_password = "<password>"
     or
     you can set it in your webhook_url itself like this
     # Normal HTTP URL
