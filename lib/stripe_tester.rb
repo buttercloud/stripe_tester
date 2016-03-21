@@ -64,7 +64,7 @@ module StripeTester
       req = Net::HTTP::Post.new(post_url.path)
       req.content_type = 'application/json'
       req.body = data.to_json
-      req.basic_auth 'stripe', self.basic_authentication_password unless self.basic_authentication_password.nil?
+      req.basic_auth 'stripe', self.basic_authentication_password if !self.basic_authentication_password.nil?
       http_object = Net::HTTP.new(post_url.hostname, post_url.port)
       http_object.use_ssl = true if post_url.scheme == 'https'
       http_object.verify_mode = OpenSSL::SSL::VERIFY_NONE if (!verify_ssl? && http_object.use_ssl?)
