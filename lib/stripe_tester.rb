@@ -134,7 +134,7 @@ module StripeTester
   end
 
   def self.basic_authentication_password
-    @webhook_password || (self.webhook_url ? self.webhook_url.password : nil)
+    @webhook_password || self.webhook_url.password
   end
 
   def self.stripe_version=(version)
