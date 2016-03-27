@@ -237,7 +237,7 @@ describe StripeTester do
     
       context "Hash with_indifferent_access not supported" do
         it "should not call with_indifferent_access" do
-          allow_any_instance_of(Hash).to receive(:respond_to?).and_return(false)
+          allow_any_instance_of(Hash).to receive(:respond_to?).with(:with_indifferent_access).and_return(false)
           expect_any_instance_of(Hash).not_to receive(:with_indifferent_access)
           StripeTester.merge_attributes({}, {})
         end
