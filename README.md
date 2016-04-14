@@ -32,68 +32,67 @@ RSpec
 In your test:
 
 1. Set the URL where the webhooks are handled:
-```ruby
-    # Normal HTTP URL
-    StripeTester.webhook_url = "http://www.example.com/my_post_url"
+  ```ruby
+      # Normal HTTP URL
+      StripeTester.webhook_url = "http://www.example.com/my_post_url"
 
-    # HTTPS URL
-    StripeTester.webhook_url = "https://www.secure-example.com/my_post_url"
-```
+      # HTTPS URL
+      StripeTester.webhook_url = "https://www.secure-example.com/my_post_url"
+  ```
 
 2. If your URL is secured with a self-signed SSL certificate, disable SSL verification:
-```ruby
-    StripeTester.verify_ssl = false
-```
+  ```ruby
+      StripeTester.verify_ssl = false
+  ```
 
 3. If you want to specify which Stripe webhook API version you would like to use (the default will be the latest [supported version](https://github.com/buttercloud/stripe_tester#supported-stripe-webhook-api-versions)):
-```ruby
-    StripeTester.stripe_version = "2015-10-16"
-```
+  ```ruby
+      StripeTester.stripe_version = "2015-10-16"
+  ```
 
 4. If you are using username and password in your Stripe webhook event, you can provide it in two ways:
 
   This will set basic auth with the default username, `stripe`, and the password provided:
-```ruby
-    StripeTester.webhook_password = "<password>"
-```
-  
+  ```ruby
+      StripeTester.webhook_password = "<password>"
+  ```
   Or you can set the username and password in the URL:
-```ruby
-    # Normal HTTP URL
-    StripeTester.webhook_url = "http://stripe:password@www.example.com/my_post_url"
+  ```ruby
+      # Normal HTTP URL
+      StripeTester.webhook_url = "http://stripe:password@www.example.com/my_post_url"
 
-    # HTTPS URL
-    StripeTester.webhook_url = "https://stripe:password@www.secure-example.com/my_post_url"
-```
+      # HTTPS URL
+      StripeTester.webhook_url = "https://stripe:password@www.secure-example.com/my_post_url"
+  ```
 
 5. Send the webhook. This will send a POST request to the URL with the event data as JSON:
-```ruby
-    # as a symbol
-    StripeTester.create_event(:invoice_created)
+  ```ruby
+      # as a symbol
+      StripeTester.create_event(:invoice_created)
 
-    # or as a string
-    StripeTester.create_event("invoice_created")
-```
+      # or as a string
+      StripeTester.create_event("invoice_created")
+  ```
 
   Or if you want to overwrite certain attributes globally:
-```ruby
-StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp'})
-```
+  ```ruby
+  StripeTester.create_event(:invoice_created, {"amount" => 100, "currency" => 'gbp'})
+  ```
 
   Or you can explicitly overwrite certain attributes using deep object merging:
-```ruby
-StripeTester.create_event(:customer_subscription_created, {"data"=>{"object"=>{"plan"=>{"id"=>"gold-v1"}}}}, :method=>:merge)
-```
+  ```ruby
+  StripeTester.create_event(:customer_subscription_created, {"data"=>{"object"=>{"plan"=>{"id"=>"gold-v1"}}}}, :method=>:merge)
+  ```
 
   If you want to load the JSON only:
-```ruby
-json = StripeTester.load_template(:invoice_payment_failed)
-```
+  ```ruby
+  json = StripeTester.load_template(:invoice_payment_failed)
+  ```
 
   You can also overwrite certain attributes in the JSON:
-```ruby
-json = StripeTester.load_template(:invoice_payment_failed, {"data"=>{"object"=>{"customer"=>"cus_MYCUSTOMERID"}}}, :method=>:merge)
-```
+  ```ruby
+  json = StripeTester.load_template(:invoice_payment_failed, {"data"=>{"object"=>{"customer"=>"cus_MYCUSTOMERID"}}}, :method=>:merge)
+  ```
 
 ## Supported Stripe Webhook API Versions
 
