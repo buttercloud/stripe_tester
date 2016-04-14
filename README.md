@@ -50,11 +50,15 @@ In your test:
     StripeTester.stripe_version = "2015-10-16"
 ```
 
-4. If you are using username and password in your stripe webhook event, you can provide it in two ways.
+4. If you are using username and password in your Stripe webhook event, you can provide it in two ways:
+
+  This will set basic auth with the default username, `stripe`, and the password provided:
 ```ruby
     StripeTester.webhook_password = "<password>"
-    or
-    you can set it in your webhook_url itself like this
+```
+  
+  Or you can set the username and password in the URL:
+```ruby
     # Normal HTTP URL
     StripeTester.webhook_url = "http://stripe:password@www.example.com/my_post_url"
 
