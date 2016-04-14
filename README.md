@@ -67,11 +67,11 @@ In your test:
 
 5. Send the webhook. This will send a POST request to the URL with the event data as JSON:
   ```ruby
-      # as a symbol
-      StripeTester.create_event(:invoice_created)
+  # as a symbol
+  StripeTester.create_event(:invoice_created)
 
-      # or as a string
-      StripeTester.create_event("invoice_created")
+  # or as a string
+  StripeTester.create_event("invoice_created")
   ```
 
   Or if you want to overwrite certain attributes globally:
