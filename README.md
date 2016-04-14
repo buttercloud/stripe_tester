@@ -33,21 +33,21 @@ In your test:
 
 1. Set the URL where the webhooks are handled:
   ```ruby
-      # Normal HTTP URL
-      StripeTester.webhook_url = "http://www.example.com/my_post_url"
+  # Normal HTTP URL
+  StripeTester.webhook_url = "http://www.example.com/my_post_url"
 
-      # HTTPS URL
-      StripeTester.webhook_url = "https://www.secure-example.com/my_post_url"
+  # HTTPS URL
+  StripeTester.webhook_url = "https://www.secure-example.com/my_post_url"
   ```
 
 2. If your URL is secured with a self-signed SSL certificate, disable SSL verification:
   ```ruby
-      StripeTester.verify_ssl = false
+  StripeTester.verify_ssl = false
   ```
 
 3. If you want to specify which Stripe webhook API version you would like to use (the default will be the latest [supported version](https://github.com/buttercloud/stripe_tester#supported-stripe-webhook-api-versions)):
   ```ruby
-      StripeTester.stripe_version = "2015-10-16"
+  StripeTester.stripe_version = "2015-10-16"
   ```
 
 4. If you are using username and password in your Stripe webhook event, you can provide it in two ways:
