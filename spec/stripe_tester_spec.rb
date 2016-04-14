@@ -13,6 +13,7 @@ describe StripeTester do
     after(:each) do
       StripeTester.stripe_version = nil
       StripeTester.verify_ssl = nil
+      StripeTester.webhook_password = nil
     end
 
     describe "#load_template" do
@@ -74,6 +75,23 @@ describe StripeTester do
       expect(result_url.to_s).to eq(url)
     end
 
+    it "#webhook_url should set the correct url if authentication is provided in url itself" do
+      url = 'http://abc:def@www.google.com'
+      StripeTester.webhook_url = url
+
+      result_url = StripeTester.webhook_url
+      expect(result_url.to_s).to eq(url)
+    end
+
+    it "#webhook_url should have correct url when password is provided through webhook_password" do
+      url = 'http://www.google.com'
+      StripeTester.webhook_url = url
+      StripeTester.webhook_password = 'password'
+
+      result_url = StripeTester.webhook_url
+      expect(result_url.to_s).to eq(url)
+    end
+
     it "#verify_ssl should default to true" do
       result_verify = StripeTester.verify_ssl?
       expect(result_verify).to eq(true)
@@ -102,6 +120,38 @@ describe StripeTester do
     it "#post_to_url should return true when request is successful" do
       data = StripeTester.load_template(:invoice_created)
       url = "http://localhost:3000/transactions"
+      StripeTester.webhook_url = url
+
+      FakeWeb.register_uri(:post,
+                           url,
+                           body: data.to_json,
+                           content_type: 'application/json')
+
+      response = StripeTester.post_to_url(data)
+
+      expect(response).to be_truthy
+    end
+
+    it "#post_to_url should return true when authentication is provided" do
+      data = StripeTester.load_template(:invoice_created)
+      url = "http://localhost:3000/transactions"
+      fake_web_url = "http://stripe:password@localhost:3000/transactions"
+      StripeTester.webhook_url = url
+      StripeTester.webhook_password='password'
+
+      FakeWeb.register_uri(:post,
+                           fake_web_url,
+                           body: data.to_json,
+                           content_type: 'application/json')
+
+      response = StripeTester.post_to_url(data)
+
+      expect(response).to be_truthy
+    end
+
+    it "#post_to_url should return true when authentication is provided through url" do
+      data = StripeTester.load_template(:invoice_created)
+      url = "http://stripe:password@localhost:3000/transactions"
       StripeTester.webhook_url = url
 
       FakeWeb.register_uri(:post,
