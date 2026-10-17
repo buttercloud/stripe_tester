@@ -1,0 +1,13 @@
+{
+  "name": "what-malek-should-wear",
+  "description": "Tonight's sleep outfit for Malek based on Amman weather",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.151.1"
+  },
+  "type": "module",
+  "private": true
+}

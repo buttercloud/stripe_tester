@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>What Malek Should Wear</title>
+  <meta name="description" content="Tonight's sleep outfit for Malek, based on the weather in Amman.">
+  <meta name="theme-color" content="#1b1f3b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Malek">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sky-top: #2b2f63;
+      --sky-bottom: #12152e;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.14);
+      --text: #f6f3ff;
+      --muted: #b9b6d9;
+      --moon: #f7c873;
+      --accent: #ffb38a;
+      --accent-2: #f78fb3;
+      --chip: rgba(255, 255, 255, 0.12);
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      background: linear-gradient(180deg, var(--sky-top), var(--sky-bottom)) fixed;
+      background-color: var(--sky-bottom);
+      color: var(--text);
+      font-family: "Nunito", system-ui, -apple-system, sans-serif;
+      min-height: 100dvh;
+      overflow-x: hidden;
+    }
+    .stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    .stars i {
+      position: absolute; width: 2px; height: 2px; border-radius: 50%; background: #fff;
+      animation: twinkle 3s ease-in-out infinite;
+    }
+    @keyframes twinkle { 0%, 100% { opacity: .2 } 50% { opacity: .9 } }
+
+    main {
+      position: relative; z-index: 1;
+      max-width: 460px; margin: 0 auto;
+      padding: calc(env(safe-area-inset-top) + 28px) 18px calc(env(safe-area-inset-bottom) + 28px);
+      display: flex; flex-direction: column; gap: 18px; min-height: 100dvh;
+    }
+    header { text-align: center; }
+    .moon {
+      width: 64px; height: 64px; margin: 0 auto 10px; border-radius: 50%;
+      box-shadow: inset -14px -6px 0 0 var(--moon); transform: rotate(-20deg);
+      filter: drop-shadow(0 0 18px rgba(247, 200, 115, .45));
+    }
+    h1 { font-family: "Fredoka", sans-serif; font-weight: 600; font-size: 30px; line-height: 1.1; margin: 0; }
+    .sub { color: var(--muted); margin: 6px 0 0; font-size: 15px; }
+
+    .card {
+      background: var(--card); border: 1px solid var(--card-border); border-radius: 28px;
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      padding: 20px;
+    }
+    .hidden { display: none !important; }
+
+    .weather { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .temp { font-family: "Fredoka", sans-serif; font-size: 64px; font-weight: 500; line-height: 1; }
+    .temp sup { font-size: 26px; vertical-align: top; position: relative; top: 8px; }
+    .wx-meta { text-align: right; color: var(--muted); font-size: 15px; line-height: 1.5; }
+    .wx-meta b { color: var(--text); font-weight: 700; }
+
+    .photo {
+      width: 100%; aspect-ratio: 1; border-radius: 22px; overflow: hidden; position: relative;
+      background: #f6e3cf;
+    }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity .5s; }
+    .photo .shimmer {
+      position: absolute; inset: 0; display: grid; place-items: center; color: #8a6f5a;
+      font-family: "Fredoka", sans-serif; font-size: 16px;
+      background: linear-gradient(110deg, #f6e3cf 30%, #fff3e3 50%, #f6e3cf 70%) 0 0 / 300% 100%;
+      animation: shimmer 1.6s linear infinite;
+    }
+    @keyframes shimmer { to { background-position: -300% 0 } }
+
+    .headline { font-family: "Fredoka", sans-serif; font-size: 24px; font-weight: 600; margin: 18px 0 4px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 14px; }
+    .pill { background: var(--chip); border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 700; color: var(--muted); }
+    .pill.tog { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #2a1630; }
+    ul.outfit { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    ul.outfit li {
+      display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.06);
+      border-radius: 16px; padding: 12px 14px; font-weight: 600; font-size: 16px;
+    }
+    ul.outfit li span.e { font-size: 22px; width: 28px; text-align: center; }
+    .tip { margin: 14px 0 0; color: var(--muted); font-size: 15px; line-height: 1.5; }
+    .tip b { color: var(--text); }
+
+    .spacer { flex: 1; }
+    button.go {
+      appearance: none; border: 0; width: 100%; border-radius: 22px; padding: 20px 22px;
+      font-family: "Fredoka", sans-serif; font-size: 21px; font-weight: 600; color: #2a1630;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 30px rgba(247, 143, 179, .35);
+      transition: transform .12s ease, opacity .2s;
+      cursor: pointer;
+    }
+    button.go:active { transform: scale(.97); }
+    button.go[disabled] { opacity: .7; }
+    .foot { text-align: center; color: var(--muted); font-size: 12px; opacity: .8; }
+    .error { color: #ffc1c1; text-align: center; font-weight: 600; }
+
+    .fade-in { animation: fade .5s ease both; }
+    @keyframes fade { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: none } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars" aria-hidden="true"></div>
+  <main>
+    <header>
+      <div class="moon" aria-hidden="true"></div>
+      <h1>What Malek<br>Should Wear</h1>
+      <p class="sub" id="sub">Tonight's sleep outfit for Amman weather</p>
+    </header>
+
+    <section id="result" class="hidden" aria-live="polite">
+      <div class="card weather fade-in">
+        <div>
+          <div class="temp"><span id="t-now">–</span><sup>°C</sup></div>
+          <div style="color:var(--muted);font-size:14px;margin-top:6px">Now in Amman</div>
+        </div>
+        <div class="wx-meta">
+          Tonight <b id="t-range">–</b><br>
+          Feels like <b id="t-feels">–</b><br>
+          <span id="t-cond"></span>
+        </div>
+      </div>
+
+      <div class="card fade-in" style="margin-top:14px">
+        <div class="photo">
+          <div class="shimmer" id="shimmer">Drawing Malek’s outfit…</div>
+          <img id="pic" alt="" style="opacity:0">
+        </div>
+        <div class="headline" id="headline"></div>
+        <div class="pills">
+          <span class="pill tog" id="tog"></span>
+          <span class="pill" id="room"></span>
+        </div>
+        <ul class="outfit" id="outfit"></ul>
+        <p class="tip" id="tip"></p>
+      </div>
+    </section>
+
+    <p class="error hidden" id="error"></p>
+    <div class="spacer"></div>
+
+    <button class="go" id="go">🌙 What should Malek wear?</button>
+    <p class="foot">Always follow safe sleep: on his back, no loose blankets, nothing in the crib.</p>
+  </main>
+
+  <script>
+    // Sprinkle a few twinkling stars
+    const stars = document.getElementById("stars");
+    for (let i = 0; i < 40; i++) {
+      const s = document.createElement("i");
+      s.style.left = Math.random() * 100 + "%";
+      s.style.top = Math.random() * 70 + "%";
+      s.style.animationDelay = Math.random() * 3 + "s";
+      if (Math.random() > .8) s.style.width = s.style.height = "3px";
+      stars.appendChild(s);
+    }
+
+    const $ = (id) => document.getElementById(id);
+    const btn = $("go");
+    let loadedOnce = false;
+
+    function emojiFor(item) {
+      const t = item.toLowerCase();
+      if (t.includes("sack") || t.includes("sleep bag")) return "🛌";
+      if (t.includes("sock")) return "🧦";
+      if (t.includes("pajama") || t.includes("pyjama") || t.includes("sleeper") || t.includes("footed")) return "👣";
+      if (t.includes("diaper") || t.includes("nappy")) return "🍼";
+      if (t.includes("mitt")) return "🧤";
+      if (t.includes("bodysuit") || t.includes("onesie") || t.includes("vest")) return "👕";
+      return "✨";
+    }
+
+    async function load() {
+      btn.disabled = true;
+      btn.textContent = "Checking the sky… ✨";
+      $("error").classList.add("hidden");
+      try {
+        const res = await fetch("/api/outfit" + (loadedOnce ? "?fresh=1" : ""), { cache: "no-store" });
+        const d = await res.json();
+        if (!res.ok) throw new Error(d.error || "Request failed");
+        render(d);
+        loadedOnce = true;
+      } catch (e) {
+        $("error").textContent = "Couldn’t check right now — please try again.";
+        $("error").classList.remove("hidden");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = loadedOnce ? "🔄 Check again" : "🌙 What should Malek wear?";
+      }
+    }
+
+    function render(d) {
+      const w = d.weather;
+      $("t-now").textContent = w.now;
+      $("t-range").textContent = `${w.low}° – ${w.high}°`;
+      $("t-feels").textContent = `${w.feelsLow}°`;
+      $("t-cond").textContent = w.condition.charAt(0).toUpperCase() + w.condition.slice(1);
+      $("headline").textContent = d.headline;
+      $("tog").textContent = `${Number(d.tog).toFixed(1)} TOG`;
+      $("room").textContent = `Room ≈ ${d.roomTemp}°C`;
+      $("tip").innerHTML = "<b>Tip:</b> ";
+      $("tip").append(d.tip);
+      const ul = $("outfit");
+      ul.innerHTML = "";
+      for (const item of d.outfit) {
+        const li = document.createElement("li");
+        const e = document.createElement("span");
+        e.className = "e"; e.textContent = emojiFor(item);
+        li.append(e, item);
+        ul.append(li);
+      }
+      const pic = $("pic");
+      const shimmer = $("shimmer");
+      if (pic.dataset.src !== d.imageUrl) {
+        pic.style.opacity = 0;
+        shimmer.classList.remove("hidden");
+        pic.onload = () => { pic.style.opacity = 1; shimmer.classList.add("hidden"); };
+        pic.onerror = () => { pic.src = "/fallback-baby.svg"; };
+        pic.alt = `Illustration: ${d.outfit.join(", ")}`;
+        pic.dataset.src = d.imageUrl;
+        pic.src = d.imageUrl;
+      }
+      const today = new Date().toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", timeZone: "Asia/Amman" });
+      $("sub").textContent = today;
+      $("result").classList.remove("hidden");
+      $("result").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    btn.addEventListener("click", load);
+  </script>
+</body>
+</html>

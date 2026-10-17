@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "what-malek-should-wear",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "ai": { "binding": "AI" },
+  "observability": { "enabled": true }
+  // Optional but recommended (makes caching work on *.workers.dev):
+  //   npx wrangler kv namespace create CACHE
+  // then add:
+  // "kv_namespaces": [{ "binding": "CACHE", "id": "<id from the command above>" }]
+}
