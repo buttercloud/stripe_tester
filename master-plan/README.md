@@ -5,29 +5,30 @@
 | `master-plan.pptx` | 12 slides, 16:9, fully editable text, speaker notes on every slide |
 | `master-plan.pdf` | PDF export of the same deck (LibreOffice) |
 | `previews/slide-NN.png` | PNG render of every slide; `previews/contact-sheet.png` is the overview |
-| `photos/` | Final photos go here, named by slot (see `credits.md`) |
+| `photos/` | Final cropped photos, named by slot; `photos/shortlist/` has the alternates |
 | `credits.md` | Photographer, URL and licence for every photo used |
 | `fonts/` | Cormorant Garamond and Rubik (OFL) to install on the presenting machine |
 | `build/` | Generator (`build.js`), photo sourcing (`fetch_photos.py`), scrims and plates |
 
-## Filling the photo slots
+## Photos
 
-The build environment could not reach any photo API, so all 11 photo slots are
-placeholder plates with a small copper label naming the brief. To replace them:
+All 11 slots are filled with CC BY 2.0 photos from the Open Images Dataset (Flickr).
+See `credits.md` for photographer, URL and licence, and `photos/shortlist/` for the
+runners-up. The copies are 1024 px max (fine on screen, soft in print); the Flickr
+URLs in `credits.md` link to the originals if you want higher resolution.
+
+To swap a photo: replace `photos/<slot>.jpg` (slot names are in `credits.md`) and
+rebuild:
 
 ```bash
 cd master-plan/build
-export PEXELS_API_KEY=...          # optional
-export UNSPLASH_ACCESS_KEY=...     # optional (Openverse needs no key)
-python3 fetch_photos.py            # shortlists 3 per slot into photos/shortlist/, picks #0,
-                                   # crops to the slot, writes photos/<slot>.jpg and credits.md rows
-python3 fetch_photos.py --only 01-cover --pick 01-cover=2   # re-pick one slot from its shortlist
 npm install pptxgenjs              # once
-node build.js                      # rebuilds the deck with real photos
+node build.js                      # rebuilds master-plan.pptx from photos/ and the copy in build.js
 ```
 
-Or drop your own JPGs into `photos/` with the slot names and rebuild. The label
-disappears automatically when a slot has a real photo.
+`build/fetch_photos.py` is a ready-made Pexels / Unsplash / Openverse sourcing script for
+an environment where those APIs are reachable (needs PEXELS_API_KEY / UNSPLASH_ACCESS_KEY).
+`build/openimages/` holds the label-based selection scripts used for the current photos.
 
 ## Fonts
 

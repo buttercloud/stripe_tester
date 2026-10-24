@@ -1,0 +1,6 @@
+{
+ "beans-a":    {"groups": [["/m/01_7l"]], "thr": 0.8, "excl": ["/m/07ptj3n","/m/02p5f1q","/m/02jvh9","/m/04brg2","/m/0dzct","/m/01g317","/m/07s6nbt","/m/0271t","/m/01nr56"], "excl_thr": 0.4},
+ "beans-b":    {"groups": [["/m/01_7l","/m/02vqfm"], ["/m/0ggk1v7","/m/0ch47tv","/m/09q2t","/m/0f5f8","/m/06g_vy2"]], "thr": 0.6, "excl": ["/m/07ptj3n","/m/02p5f1q","/m/02jvh9","/m/0dzct","/m/01g317","/m/07s6nbt"], "excl_thr": 0.5},
+ "roastery-b": {"groups": [["/m/01_7l","/m/02vqfm","/m/01vk_m","/m/07xyvk"], ["/m/0168g6","/m/02nzw0","/m/03rnh","/m/0dkw5","/m/0n5v01m","/m/0475mb"]], "thr": 0.6, "excl": ["/m/0dzct","/m/07s6nbt"]},
+ "cocoa":      {"groups": [["/m/0f5f8"]], "thr": 0.7, "excl": ["/m/0dzct","/m/01g317","/m/07s6nbt"]}
+}

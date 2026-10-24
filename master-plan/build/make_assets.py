@@ -24,7 +24,7 @@ def hgrad(name, color, a_left, a_right, w=1920, h=64, power=1.0):
 vgrad("scrim_bottom", ESP, 0.0, 0.92, power=1.6)          # fade to dark at bottom
 vgrad("scrim_bottom_soft", ESP, 0.0, 0.75, power=1.3)
 vgrad("scrim_top", ESP, 0.70, 0.0, power=1.0)              # darker top (titles)
-vgrad("scrim_full_dark", ESP, 0.35, 0.90, power=1.4)       # left pillar panels
+vgrad("scrim_full_dark", ESP, 0.45, 0.92, power=1.3)       # left pillar panels
 vgrad("scrim_green", GRN, 0.70, 0.88, power=1.0)           # ambition slide
 vgrad("scrim_close", ESP, 0.50, 0.85, power=1.0)
 hgrad("scrim_left_fade", ESP, 1.0, 0.0, power=0.9)         # cover: blend photo into dark bg

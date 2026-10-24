@@ -1,0 +1,157 @@
+{
+ "01-cover": {
+  "dir": "cands3/beans-a",
+  "id": "e36adc88",
+  "alts": [
+   [
+    "cands3/beans-a",
+    "26eb753c"
+   ],
+   [
+    "cands3/beans-b",
+    "151f9208"
+   ]
+  ]
+ },
+ "04-ambition": {
+  "dir": "cands2/04-ambition",
+  "id": "921f8ec5",
+  "alts": [
+   [
+    "cands2/04-ambition",
+    "48a147cb"
+   ],
+   [
+    "cands2/04-ambition",
+    "01c715ad"
+   ]
+  ]
+ },
+ "05-card-1": {
+  "dir": "cands2/05-card-1",
+  "id": "a03d6cae",
+  "alts": [
+   [
+    "cands2/05-card-1",
+    "51f37863"
+   ],
+   [
+    "cands2/05-card-1",
+    "89436d56"
+   ]
+  ]
+ },
+ "05-card-2": {
+  "dir": "cands2/chef",
+  "id": "2bbc1060",
+  "alts": [
+   [
+    "cands2/chef",
+    "fefaf576"
+   ],
+   [
+    "cands2/chef",
+    "dddc7057"
+   ]
+  ]
+ },
+ "05-card-3": {
+  "dir": "cands2/05-card-3",
+  "id": "26323348",
+  "alts": [
+   [
+    "cands2/05-card-3",
+    "030e78fa"
+   ],
+   [
+    "cands2/05-card-3",
+    "0e787c5f"
+   ]
+  ]
+ },
+ "05-card-4": {
+  "dir": "cands2/05-card-4",
+  "id": "b281c337",
+  "alts": [
+   [
+    "cands2/05-card-4",
+    "4ccaef8f"
+   ],
+   [
+    "cands2/05-card-4",
+    "f66405c7"
+   ]
+  ]
+ },
+ "06-pillar-1": {
+  "dir": "cands3/beans-a",
+  "id": "a7f34c66",
+  "alts": [
+   [
+    "cands3/beans-a",
+    "a5aea657"
+   ],
+   [
+    "cands3/beans-b",
+    "93d36cda"
+   ]
+  ]
+ },
+ "07-pillar-2": {
+  "dir": "cands2/chef",
+  "id": "e81a0541",
+  "alts": [
+   [
+    "cands2/chef",
+    "fefaf576"
+   ],
+   [
+    "cands2/chef",
+    "2bbc1060"
+   ]
+  ]
+ },
+ "08-pillar-3": {
+  "dir": "cands2/08-pillar-3",
+  "id": "e884f04b",
+  "alts": [
+   [
+    "cands2/08-pillar-3",
+    "c1563a24"
+   ],
+   [
+    "cands2/08-pillar-3",
+    "00003bfc"
+   ]
+  ]
+ },
+ "09-pillar-4": {
+  "dir": "cands2/09-pillar-4",
+  "id": "0056d6a6",
+  "alts": [
+   [
+    "cands2/09-pillar-4",
+    "13cfe71e"
+   ],
+   [
+    "cands2/09-pillar-4",
+    "921f8ec5"
+   ]
+  ]
+ },
+ "12-close": {
+  "dir": "cands2/12-close",
+  "id": "036e1b05",
+  "anchor": "top",
+  "alts": [
+   [
+    "cands2/12-close",
+    "ef557ae3"
+   ],
+   [
+    "cands2/12-close",
+    "d0f91ef9"
+   ]
+  ]
+ }
+}

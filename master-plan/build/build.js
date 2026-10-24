@@ -280,7 +280,7 @@ const PILLARS = [
 PILLARS.forEach((p, i) => {
   const s = pres.addSlide({ masterName: "LIGHT", sectionTitle: "The plan" });
   const pw = W * 0.4; // 5.333
-  photo(s, p.slot, 0, 0, pw, H, [{ file: "scrim_full_dark" }]);
+  photo(s, p.slot, 0, 0, pw, H, [{ file: "scrim_full_dark" }, { file: "scrim_left_fade_soft", x: 0, y: 0, w: pw, h: H }]);
   const tx = M, tw = pw - M - 0.6;
   eyebrow(s, "Pillar " + p.n, tx, EYE_Y, tw, COPPER);
   s.addText(p.t, T({ x: tx, y: TITLE_Y, w: tw, h: 1.9, fontSize: 40, fontFace: HEAD, color: CREAM, lineSpacingMultiple: 1.0, objectName: "Title" }));
